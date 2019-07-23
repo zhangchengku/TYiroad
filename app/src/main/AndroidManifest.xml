@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.tyiroad.tyiroad">
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!--<uses-permission android:name="android.permission.PERMISSION_GRANTED" />-->
+    <!--获取手机录音机使用权限，听写、识别、语义理解需要用到此权限 -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <!--读取网络信息状态 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!--获取当前wifi状态 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!--允许程序改变网络连接状态 -->
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <!--读取手机信息权限 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!--读取联系人权限，上传联系人需要用到此权限 -->
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <!--外存储写权限，构建语法需要用到此权限 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!--外存储读权限，构建语法需要用到此权限 -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <!--配置权限，用来记录应用配置信息 -->
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <!--手机定位信息，用来为语义等功能提供定位，提供更精准的服务-->
+    <!--定位信息是敏感信息，可通过Setting.setLocationEnable(false)关闭定位请求 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!--如需使用人脸识别，还要添加：摄相头权限，拍照需要用到 -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_GPS" />
+    <!--用于进行网络定位-->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"></uses-permission>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"></uses-permission>
+    <!--用于申请调用A-GPS模块-->
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS"></uses-permission>
+    <!--用于申请获取蓝牙信息进行室内定位-->
+    <uses-permission android:name="android.permission.BLUETOOTH"></uses-permission>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"></uses-permission>
+    <!--8.0 android安装-->
+    <uses-permission android:name="android.REQUEST_INSTALL_PACKAGES.GET_TASKS" />
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <!-- 个推SDK权限配置开始 -->
+    <permission
+        android:name="com.mobo.zggkrcyh.permission.JPUSH_MESSAGE"
+        android:protectionLevel="signature" />
+    <uses-permission android:name="com.mobo.zggkrcyh.permission.JPUSH_MESSAGE" />
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <application
+        android:name=".MyApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <!--高德地图定位服务-->//
+        <service android:name="com.amap.api.location.APSService"></service>
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="7645b626be1fb8dd68835d7486083411"></meta-data>
+        <activity android:name=".guide.GuideActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/MyTheme.NoTitleBar.Background">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.tyiroad.tyiroad.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_photo_deal"
+                tools:replace="android:resource" />
+        </provider>
+        <activity android:name=".main.MainActivity"   android:screenOrientation="portrait" android:theme="@style/Theme.Mike"/>
+        <activity android:name=".land.LandActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".log.LogActivity" android:screenOrientation="portrait" />
+        <activity android:name=".disease.DiseaseActivity" android:screenOrientation="portrait" />
+        <activity android:name=".home.distribute.DistributeActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Mike"/>
+        <activity android:name=".repair.RepairActivity" android:screenOrientation="portrait" />
+        <activity android:name=".lookdisease.LookdiseaseActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".handle.HandleActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".disease.newdisease.NewdiseaseActivity" android:screenOrientation="portrait" />
+        <activity android:name=".handle.inwaihandle.INwaihandleActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".handle.bdwaihandle.BDwaihandleActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".handle.readyhandlexq.ReadyhandlexqActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".handle.inwaihandle.ShowImgActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".disease.lookdiseasedb.LookdiseasedbActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".repair.lookrepair.LookRepairActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".check.CheckActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".check.checkxq.CheckxqActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".check.checkreadyxq.CheckreadyxqActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".season.SeasonActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".season.addtask.AddTaskActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".season.seasonhandle.SeasonhandleActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".season.seasoncheck.SeasonCheckActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".season.seasonrealy.SeasonRealyActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".repair.lookrepairrely.LookRepairRelyActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".yj.YjActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".yjmx.YjmxActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".yjbs.YjbsActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".yjcz.YjczActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".other.OtherActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".other.newapplication.NewApplicationActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".other.noexamine.NoExamineActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".other.OtherAddActivity.OtherAddActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".other.examine.ExamineActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".other.reported.ReportedActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".season.seasonxq.SeasonxqActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".season.seasonreturn.SeasonReturnActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".code.CodeActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".code.SweepActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".quality.qualitylist.QualitylistActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".quality.QualityActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".quality.dbquality.DbQualityActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".quality.inquality.INQualityActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".monitoring.MonitoringActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".monitoring.monitoringxq.MonitoringXQActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".monitoring.inmonitoring.INMonitoringActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".monitoring.dbmonitoring.DBMonitoringActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".log.addlog.AddLogActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".log.lookdblog.LookDBLogActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".log.looklog.LookLogActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".log.organization.OrganizationActivity"  android:screenOrientation="portrait"/>
+    </application>
+
+</manifest>

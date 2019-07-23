@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <include
+        android:id="@+id/activity_disease_list_top"
+        layout="@layout/layout_header" />
+
+    <LinearLayout
+        android:id="@+id/rr"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/disease_com_item_height"
+        android:background="#E3F4FF"
+        android:layout_below="@+id/activity_disease_list_top"
+        >
+        <RelativeLayout
+
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="0.8">
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:ellipsize="middle"
+                android:singleLine="true"
+                android:text="状态"
+                android:textSize="@dimen/text_size_for_sixteen" />
+
+
+        </RelativeLayout>
+
+
+
+        <RelativeLayout
+            android:id="@+id/lxr"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1.2">
+
+            <TextView
+                android:id="@+id/lx"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:ellipsize="middle"
+                android:singleLine="true"
+                android:text="所在路线"
+                android:textSize="@dimen/text_size_for_sixteen" />
+
+            <ImageView
+                android:layout_width="8dp"
+                android:layout_height="8dp"
+                android:layout_alignBottom="@+id/lx"
+                android:layout_marginBottom="3dp"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@+id/lx"
+                android:src="@drawable/xcbh_riqixuanze_sanjiao" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/sgr"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1.2">
+
+            <TextView
+                android:id="@+id/sg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:ellipsize="middle"
+                android:singleLine="true"
+                android:text="施工类型"
+                android:textSize="@dimen/text_size_for_sixteen" />
+
+            <ImageView
+                android:layout_width="8dp"
+                android:layout_height="8dp"
+                android:layout_alignBottom="@+id/sg"
+                android:layout_marginBottom="3dp"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@+id/sg"
+                android:src="@drawable/xcbh_riqixuanze_sanjiao" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/bhr"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1.2">
+
+            <TextView
+                android:id="@+id/type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:ellipsize="middle"
+                android:singleLine="true"
+                android:text="管养单位"
+                android:textSize="@dimen/text_size_for_sixteen" />
+
+            <ImageView
+                android:layout_width="8dp"
+                android:layout_height="8dp"
+                android:layout_alignBottom="@+id/type"
+                android:layout_marginBottom="3dp"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@+id/type"
+                android:src="@drawable/xcbh_riqixuanze_sanjiao" />
+        </RelativeLayout>
+
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/rrr"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/rr"
+        android:background="#DFDFDF"
+        android:orientation="horizontal" />
+
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:id="@+id/refreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/look_log"
+        android:layout_below="@+id/rr">
+
+        <com.scwang.smartrefresh.layout.header.ClassicsHeader
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <ListView
+            android:layout_below="@+id/rrr"
+            android:id="@+id/waihandle_rv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:cacheColorHint="@color/transparent"
+            android:divider="@color/transparent"
+            android:dividerHeight="0dp"
+            android:layout_above="@+id/shang"
+            />
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+    <LinearLayout
+        android:layout_alignParentBottom="true"
+        android:id="@+id/shang"
+        android:visibility="visible"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/disease_com_item_height">
+        <TextView
+            android:id="@+id/plys"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/upload_btn_sel"
+            android:gravity="center"
+            android:text="新任务"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_for_fifteen" />
+    </LinearLayout>
+    <View
+        android:id="@+id/activity_disease_list_zhe_zhao_top_filter_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/rr"
+        android:background="#40000000"
+        android:visibility="gone">
+
+    </View>
+</RelativeLayout>

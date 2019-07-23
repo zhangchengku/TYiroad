@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:background="#FFFFFF"
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:id="@+id/ref"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <CheckBox
+            android:layout_marginLeft="15dp"
+            android:id="@+id/cb"
+            android:theme="@style/MyCheckBox"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_centerVertical="true"
+            android:id="@+id/neirongte"
+            android:textSize="@dimen/text_size_for_fourteen"
+            android:textColor="#333333"
+            android:layout_toRightOf="@+id/cb"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:text="检查各种标志、标配是否完好，"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+    <LinearLayout
+        android:id="@+id/zdk"
+        android:visibility="gone"
+        android:layout_marginLeft="60dp"
+        android:layout_below="@+id/neirongte"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <TextView
+            android:textSize="@dimen/text_size_for_fourteen"
+            android:textColor="#333333"
+            android:layout_gravity="center_vertical"
+            android:text="重点K："
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/fo2"
+            android:textSize="@dimen/text_size_for_fourteen"
+            android:textColor="#333333"
+            android:layout_gravity="center_vertical"
+            android:hint="请输入文字"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp" />
+        <TextView
+            android:textSize="@dimen/text_size_for_fourteen"
+            android:textColor="#333333"
+            android:layout_gravity="center_vertical"
+            android:text="-K："
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/fo3"
+            android:textSize="@dimen/text_size_for_fourteen"
+            android:textColor="#333333"
+            android:layout_gravity="center_vertical"
+            android:hint="请输入文字"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp" />
+        <TextView
+            android:textSize="@dimen/text_size_for_fourteen"
+            android:textColor="#333333"
+            android:layout_gravity="center_vertical"
+            android:text="段涵洞、通道"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <RelativeLayout
+        android:id="@+id/zdxc"
+        android:visibility="gone"
+        android:layout_below="@+id/neirongte"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <TextView
+            android:layout_centerVertical="true"
+            android:visibility="visible"
+            android:id="@+id/tee"
+            android:textSize="@dimen/text_size_for_fourteen"
+            android:text="重点巡查："
+            android:textColor="#333333"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="60dp"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <EditText
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/tee"
+            android:id="@+id/fo1"
+            android:textSize="@dimen/text_size_for_fourteen"
+            android:textColor="#333333"
+            android:background="#fafafa"
+            android:hint="请输入文字"
+            android:layout_width="match_parent"
+            android:layout_height="30dp" />
+    </RelativeLayout>
+</LinearLayout>

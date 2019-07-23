@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="80dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/sheng"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/yj_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="zz"
+                android:textColor="@color/text_3"
+                android:textSize="@dimen/text_size_for_fifteen" />
+
+            <TextView
+                android:id="@+id/time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="2019-01"
+                android:textColor="@color/text_6"
+                android:textSize="@dimen/text_size_for_thirteen" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/sheng"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="省Ⅰ级"
+            android:textColor="@color/text_6" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="25dp"
+            android:layout_toRightOf="@+id/sheng">
+
+            <TextView
+                android:id="@+id/gwzz"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/zz_button"
+                android:gravity="center"
+                android:text="岗位职责"
+                android:textColor="@color/bg"
+                android:textSize="@dimen/text_size_for_fourteen" />
+
+            <TextView
+                android:id="@+id/ck"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/ck_button"
+                android:gravity="center"
+                android:text="查看"
+                android:textColor="@color/bg"
+                android:textSize="@dimen/text_size_for_fourteen" />
+        </LinearLayout>
+        <View
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@color/divider"/>
+    </RelativeLayout>
+
+</FrameLayout>
+
+
+

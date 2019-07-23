@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_to_examine"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context="com.tyiroad.tyiroad.repair.RepairActivity">
+
+    <RelativeLayout
+        android:id="@+id/to_examine_top_title_layout"
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:background="@color/theme_color">
+
+        <LinearLayout
+            android:id="@+id/to_examine_back_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="15dp"
+                android:src="@drawable/com_back_sel" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true">
+
+            <TextView
+                android:id="@+id/to_examine_dai_ban_btn_txt"
+                android:layout_width="120dp"
+                android:layout_height="30dp"
+                android:background="@drawable/shape_pf_shai_xuan_left_select"
+                android:gravity="center"
+                android:text="待办"
+                android:textColor="@color/theme_color"
+                android:textSize="@dimen/text_size_for_sixteen" />
+
+            <TextView
+                android:id="@+id/to_examine_yi_ban_btn_txt"
+                android:layout_width="120dp"
+                android:layout_height="30dp"
+                android:background="@drawable/shape_pf_shai_xuan_right_no_select"
+                android:gravity="center"
+                android:text="已办"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_for_sixteen" />
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:id="@+id/to_examine_custom_drawer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/to_examine_bottom_btn_layout"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:id="@+id/to_examine_ssld_layout"
+                    android:layout_width="match_parent"
+                    android:background="@drawable/com_listview_selector"
+                    android:layout_height="@dimen/disease_com_item_height"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="施工单位"
+                        android:textColor="@color/text_6"
+                        android:textSize="@dimen/text_size_for_sixteen" />
+
+                    <TextView
+                        android:text="请选择施工单位"
+                        android:id="@+id/to_examine_ssld_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"
+                        android:ellipsize="end"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="10dp"
+                        android:textColor="#57b5fc"
+                        android:textSize="@dimen/text_size_for_sixteen" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@color/divider"></View>
+
+                <LinearLayout
+                    android:id="@+id/to_examine_sgdw_layout"
+                    android:layout_width="match_parent"
+                    android:background="@drawable/com_listview_selector"
+                    android:layout_height="@dimen/disease_com_item_height"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="完成时间"
+                        android:textColor="@color/text_6"
+                        android:textSize="@dimen/text_size_for_sixteen" />
+
+                    <TextView
+                        android:text="请选择完成时间"
+                        android:id="@+id/to_examine_sgdw_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"
+                        android:ellipsize="end"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="10dp"
+                        android:textColor="#57b5fc"
+                        android:textSize="@dimen/text_size_for_sixteen" />
+
+                </LinearLayout>
+
+                <FrameLayout
+                    android:id="@+id/fragment_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/to_examine_bottom_btn_layout"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/disease_com_item_height"
+                android:layout_alignParentBottom="true"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/to_examine_pf_txt"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+                    android:background="#3499e7"
+                    android:gravity="center"
+                    android:text="处置"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_for_sixteen" />
+
+
+            </LinearLayout>
+            <View
+                android:id="@+id/activity_disease_list_zhe_zhao_top_filter_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#40000000"
+                android:visibility="gone">
+
+            </View>
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>

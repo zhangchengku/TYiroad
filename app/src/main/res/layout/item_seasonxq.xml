@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:background="@drawable/com_listview_selector"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+<RelativeLayout
+    android:id="@+id/season_lay"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/name"
+        android:textColor="#101010"
+        android:textSize="@dimen/text_size_for_fourteen"
+        android:paddingLeft="25dp"
+        android:gravity="center_vertical"
+        android:text="asdfasdf"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp" />
+    <RelativeLayout
+        android:layout_alignParentRight="true"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:id="@+id/gcl"
+          android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+            <TextView
+                android:textColor="#101010"
+                android:textSize="@dimen/text_size_for_fourteen"
+                android:text="工程量"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_marginRight="15dp"
+                android:id="@+id/gcl_te"
+                android:gravity="center"
+                android:padding="3dp"
+                android:textColor="#888888"
+                android:textSize="@dimen/text_size_for_twelve"
+                android:background="@drawable/edit_bg"
+                android:text="请录入其他信息"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/qt"
+            android:layout_below="@+id/gcl"
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+            <TextView
+                android:textColor="#101010"
+                android:textSize="@dimen/text_size_for_fourteen"
+                android:text="其    他"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_marginRight="15dp"
+                android:id="@+id/qt_te"
+                android:padding="3dp"
+                android:gravity="center"
+                android:textColor="#888888"
+                android:textSize="@dimen/text_size_for_twelve"
+                android:background="@drawable/edit_bg"
+                android:layout_marginLeft="5dp"
+                android:text="请录入其他信息"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/qt_lay"
+            android:layout_below="@+id/qt"
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+            <TextView
+                android:textColor="#101010"
+                android:textSize="@dimen/text_size_for_fourteen"
+                android:text="备    注"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_marginRight="15dp"
+                android:id="@+id/bz_te"
+                android:padding="3dp"
+                android:gravity="center"
+                android:textColor="#888888"
+                android:textSize="@dimen/text_size_for_twelve"
+                android:background="@drawable/edit_bg"
+                android:layout_marginLeft="5dp"
+                android:text="请录入其他信息"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <View
+            android:layout_below="@+id/qt_lay"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/divider"/>
+    </RelativeLayout>
+</RelativeLayout>
+
+</RelativeLayout>

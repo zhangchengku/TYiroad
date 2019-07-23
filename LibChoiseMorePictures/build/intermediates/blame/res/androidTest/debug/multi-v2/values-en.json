@@ -1,0 +1,34 @@
+{
+    "logs": [
+        {
+            "outputFile": "C:\\studio\\TYiroad\\LibChoiseMorePictures\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-en\\values-en.xml",
+            "map": [
+                {
+                    "source": "C:\\studio\\TYiroad\\LibChoiseMorePictures\\build\\intermediates\\bundles\\debug\\res\\values-en\\values-en.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8",
+                        "startColumns": "4,4,4,4,4,4,4",
+                        "startOffsets": "55,111,169,218,283,353,407",
+                        "endColumns": "55,57,48,64,69,53,49",
+                        "endOffsets": "106,164,213,278,348,402,452"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\studio\\TYiroad\\LibChoiseMorePictures\\build\\intermediates\\res\\merged\\androidTest\\debug\\values-en\\values-en.xml",
+            "map": [
+                {
+                    "source": "C:\\studio\\TYiroad\\LibChoiseMorePictures\\build\\intermediates\\bundles\\debug\\res\\values-en\\values-en.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8",
+                        "startColumns": "4,4,4,4,4,4,4",
+                        "startOffsets": "55,111,169,218,283,353,407",
+                        "endColumns": "55,57,48,64,69,53,49",
+                        "endOffsets": "106,164,213,278,348,402,452"
+                    }
+                }
+            ]
+        }
+    ]
+}

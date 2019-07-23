@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true" android:drawable="@color/bh_delete_btn_bg_color_pressed" ></item>
+    <item android:drawable="@color/bh_delete_btn_bg_color"></item>
+</selector>

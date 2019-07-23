@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:minHeight="50dp"
+    android:id="@+id/lay"
+    android:background="@color/white"
+    android:orientation="horizontal">
+    <CheckBox
+        android:visibility="visible"
+        android:id="@+id/cb"
+        android:theme="@style/MyCheckBox"
+        android:layout_gravity="center_vertical"
+        android:layout_width="0dp"
+        android:layout_weight="0.5"
+        android:layout_height="50dp" />
+    <TextView
+        android:id="@+id/other_zt"
+        android:gravity="center"
+        android:layout_width="0dp"
+        android:layout_weight="0.8"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:textColor="@color/text_6"
+        android:textSize="@dimen/text_size_for_fourteen"
+        android:layout_height="match_parent" />
+    <TextView
+        android:id="@+id/other_time"
+        android:gravity="center"
+        android:layout_width="0dp"
+        android:layout_weight="1.2"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:textColor="@color/text_6"
+        android:textSize="@dimen/text_size_for_fourteen"
+        android:layout_height="match_parent" />
+    <TextView
+        android:id="@+id/other_lx"
+        android:gravity="center"
+        android:layout_width="0dp"
+        android:layout_weight="1.1"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:textColor="@color/text_6"
+        android:textSize="@dimen/text_size_for_fourteen"
+        android:layout_height="match_parent" />
+    <TextView
+        android:id="@+id/other_dw"
+        android:gravity="center"
+        android:layout_width="0dp"
+        android:layout_weight="1.1"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:textColor="@color/text_6"
+        android:textSize="@dimen/text_size_for_fourteen"
+        android:layout_height="match_parent" />
+</LinearLayout>

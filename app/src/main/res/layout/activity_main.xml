@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:id="@+id/buttom_tab"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/funds_bg"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <com.xyz.tabitem.BottmTabItem
+            android:id="@+id/home"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:xyzIcon="@drawable/homexz"
+            app:xyzIconHeight="25dp"
+            app:xyzIconWidth="25dp"
+            app:xyzSelectIcon="@drawable/home"
+            app:xyzSelectState="true"
+            app:xyzTitle="首  页"
+            app:xyzTitleColor="@color/text_style01"
+            app:xyzTitleSelectColor="@color/theme_color"
+            app:xyzTitleSize="12sp"
+            app:xyzTitleTop="2dp" />
+
+        <com.xyz.tabitem.BottmTabItem
+            android:id="@+id/my"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:xyzIcon="@drawable/woxz"
+            app:xyzIconHeight="25dp"
+            app:xyzIconWidth="25dp"
+            app:xyzSelectIcon="@drawable/wo"
+            app:xyzSelectState="false"
+            app:xyzTitle="个人中心"
+            app:xyzTitleColor="@color/text_style01"
+            app:xyzTitleSelectColor="@color/theme_color"
+            app:xyzTitleSize="12sp"
+            app:xyzTitleTop="2dp" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/buttom_tab" />
+</RelativeLayout>

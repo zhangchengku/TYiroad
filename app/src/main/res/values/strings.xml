@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">通用版iroad</string>
+    <string name="offline_data_loading_content" formatted="false">共%s个离线数据包，正在下载第%s个</string>
+    <string name="offline_data_refresh_content" formatted="false">共%s个离线数据包，正在更新第%s个</string>
+    <string name="log_update_warm_title">当前有%s条巡查日志数据需要上传，请问是否立即上传？</string>
+    <string name="log_update_quality">当前有%s条数据需要上传，请问是否立即上传？</string>
+    <string name="quality_uploading_content" formatted="false">共%s条数据，正在上传第%s条</string>
+    <string name="disease_data_uploading_content" formatted="false">共%s条病害数据，正在上传第%s条</string>
+    <string name="handle_data_uploading_content" formatted="false">共%s条维修数据，正在上传第%s条</string>
+    <string name="zh">桩&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;号</string>
+    <string name="kb">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</string>
+    <string name="lx">路&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;线</string>
+    <string name="bh">板&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;号</string>
+    <string name="sl">数&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;量</string>
+    <string name="dw">单&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;位</string>
+    <string name="dj">单&#160;&#160;价(元)</string>
+    <string name="gcl">工&#160;&#160;程&#160;&#160;量</string>
+    <string name="state_dai_shang_chuan">待上传</string>
+    <string name="state_xin_tian_jia">新添加</string>
+    <string name="state_xin_bing_hai">新病害</string>
+    <string name="state_yi_pai_fa">已派发</string>
+    <string name="state_yi_wei_xiu">已维修</string>
+    <string name="state_yi_yan_shou">已验收</string>
+    <string name="state_yan_shou_tui_hui">验收退回</string>
+    <string name="state_fa_qi_kao_he">发起考核</string>
+    <string name="state_kao_he_tui_hui">考核退回</string>
+    <string name="state_pi_liang_tui_hui">批量退回</string>
+    <string name="state_yi_kao_he">已考核</string>
+    <string name="state_yi_ji_liang">已计量</string>
+    <string name="state_dai_kao_he">待考核</string>
+    <string name="state_shi_tong_he_ge">视同合格</string>
+    <string name="state_shi_gong_dan_wei_bing_hai">施工单位病害</string>
+    <string name="yi_shang_bao">已上报</string>
+    <string name="shen_pi_tong_guo">审批通过</string>
+    <string name="shen_pi_bu_tong_guo">审批不通过</string>
+    <string name="shi_chu_yi_pai_fa">市处已派发</string>
+    <string name="select_bh_does_not_meet_the_requirements">只有新添加和新病害可以派发，请重新选择</string>
+    <string name="select_bh_does_not_meet_the_shenhe">只有施工单位病害可以审核，请重新选择</string>
+</resources>

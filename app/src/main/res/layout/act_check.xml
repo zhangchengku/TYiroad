@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:background="#F5F5F5"
+    android:layout_height="match_parent">
+    <include layout="@layout/layout_header" />
+    <RelativeLayout
+        android:background="#FFFFFF"
+        android:id="@+id/hedler_layout"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+        <RadioGroup
+            android:id="@+id/radio_layout"
+            android:layout_width="250dp"
+            android:layout_height="33dp"
+            android:layout_centerInParent="true"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/now_showing"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/radio_left_bg"
+                android:button="@null"
+                android:checked="true"
+                android:gravity="center"
+                android:text="待办"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_for_fifteen"
+                />
+
+
+            <RadioButton
+                android:id="@+id/next_showing"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/radio_right_bg"
+                android:button="@null"
+                android:gravity="center"
+                android:text="已办"
+                android:textColor="@color/theme_color"
+                android:textSize="@dimen/text_size_for_fifteen"
+                />
+
+        </RadioGroup>
+
+    </RelativeLayout>
+
+
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/buttom_top_line" />
+
+
+
+</LinearLayout>

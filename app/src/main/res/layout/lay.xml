@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#282828"
+        android:orientation="horizontal">
+
+        <TextView
+            android:textColor="@color/text_color"
+            android:id="@+id/one"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="0.5dp"
+            android:layout_marginLeft="1dp"
+            android:layout_marginTop="0.5dp"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:gravity="center"
+            android:text="弯道(0.01mm)" />
+
+        <TextView
+            android:textColor="@color/text_color"
+            android:id="@+id/two"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="0.5dp"
+            android:layout_marginLeft="1dp"
+            android:layout_marginRight="1dp"
+            android:layout_marginTop="0.5dp"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:gravity="center"
+            android:text="大于设计要求值" />
+
+        <RadioGroup
+            android:id="@+id/rg_sex"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="0.5dp"
+            android:layout_marginRight="1dp"
+            android:layout_marginTop="0.5dp"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:checked="true"
+                android:textColor="@color/text_color"
+                android:id="@+id/rb_Male"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="是"
+                android:theme="@style/MyRadioButton" />
+
+            <RadioButton
+                android:textColor="@color/text_color"
+                android:id="@+id/rb_FeMale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="否"
+                android:theme="@style/MyRadioButton" />
+        </RadioGroup>
+    </LinearLayout>
+</RelativeLayout>

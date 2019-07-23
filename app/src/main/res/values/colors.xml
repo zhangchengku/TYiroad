@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="white">#FFFFFF</color>
+    <color name="text_style01">#999999</color>
+    <color name="theme_color">#5282EB</color>
+    <color name="text_color">#333333</color>
+    <color name="bg">#FDFDFE</color>
+    <color name="divider">#F1F2F3</color>
+    <color name="act_bg01">#f0f0f0</color>
+    <color name="line_bh_new_top">#addbff</color>
+    <color name="upload_btn_pressed">#3499e7</color>
+    <color name="text_3">#333333</color>
+    <color name="text_6">#666666</color>
+    <color name="text_9">#999999</color>
+    <color name="transparent">#00000000</color>
+    <color name="xcbh_date_green_bg">#c8e7ff</color>
+    <color name="select_month_text_bg">#5db7fc</color>
+    <color name="com_bottom_left_btn_bg">#2f3234</color>
+    <color name="halving_line">#ffdedede</color>
+    <color name="disease_yishangchuan">#2ec849</color>
+    <color name="disease_daishangchuan">#fa5f35</color>
+    <color name="pf_xin_tian_jia_text_color">#e58100</color>
+    <color name="pf_xin_bing_hai_text_color">#cf1f1f</color>
+    <color name="pf_list_top_title_bg_color">#E3F4FF</color>
+    <color name="pf_list_divider_color">#ECF4F7</color>
+    <color name="bh_delete_btn_bg_color">#eaf5fd</color>
+    <color name="bh_delete_btn_bg_color_pressed">#bedaef</color>
+    <color name="disease_flag_text_bg_ypf_yys_ywx">#2ec849</color>
+    <color name="direction_btn_bg_color">#dff0fc</color>
+    <color name="bh_lx_pop_select_text_color">#57b5fc</color>
+    <color name="disease_flag_text_bg_dsc">#4499f9</color>
+    <color name="disease_flag_text_bg_sgz">#faa935</color>
+    <color name="com_bottom_left_btn_bg_select">#18191a</color>
+    <color name="scan_corner_color">#0effc2</color>
+    <color name="funds_bg">#F9F9F9</color>
+    <color name="green">#71C671</color>
+    <color name="blue">#1DA1F2</color>
+
+
+    <color name="whiteme">#FEFEFE</color>
+    <color name="tec">#666666</color>
+    <color name="qr">#4398F6</color>
+    <color name="back">#000000</color>
+</resources>

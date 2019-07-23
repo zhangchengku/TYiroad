@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <include
+        android:id="@+id/activity_disease_list_top"
+        layout="@layout/layout_header" />
+
+    <LinearLayout
+        android:id="@+id/rr"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/disease_com_item_height"
+        android:background="#FFFFFF"
+        android:layout_below="@+id/activity_disease_list_top"
+        >
+        <RelativeLayout
+            android:id="@+id/dw_re"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/dw_te"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:ellipsize="middle"
+                android:singleLine="true"
+                android:text="全部单位"
+                android:textSize="@dimen/text_size_for_sixteen" />
+
+            <ImageView
+                android:layout_width="8dp"
+                android:layout_height="8dp"
+                android:layout_alignBottom="@+id/dw_te"
+                android:layout_marginBottom="3dp"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@+id/dw_te"
+                android:src="@drawable/xcbh_riqixuanze_sanjiao" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/zl_re"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/zl_te"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:ellipsize="middle"
+                android:singleLine="true"
+                android:text="全部种类"
+                android:textSize="@dimen/text_size_for_sixteen" />
+
+            <ImageView
+                android:layout_width="8dp"
+                android:layout_height="8dp"
+                android:layout_alignBottom="@+id/zl_te"
+                android:layout_marginBottom="3dp"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@+id/zl_te"
+                android:src="@drawable/xcbh_riqixuanze_sanjiao" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/zt_re"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/zt_te"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:ellipsize="middle"
+                android:singleLine="true"
+                android:text="全部等级"
+                android:textSize="@dimen/text_size_for_sixteen" />
+
+            <ImageView
+                android:layout_width="8dp"
+                android:layout_height="8dp"
+                android:layout_alignBottom="@+id/zt_te"
+                android:layout_marginBottom="3dp"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@+id/zt_te"
+                android:src="@drawable/xcbh_riqixuanze_sanjiao" />
+        </RelativeLayout>
+    </LinearLayout>
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:id="@+id/refreshLayout"
+        android:layout_below="@+id/rr"
+        android:layout_above="@+id/rrr"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <com.scwang.smartrefresh.layout.header.ClassicsHeader
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <ListView
+            android:layout_below= "@+id/rrr"
+            android:id="@+id/waihandle_rv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:cacheColorHint="@color/transparent"
+            android:divider="@color/transparent"
+            android:dividerHeight="0dp"
+            android:layout_above="@+id/shang"
+            />
+        <com.scwang.smartrefresh.layout.footer.ClassicsFooter
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+    <View
+        android:id="@+id/activity_disease_list_zhe_zhao_top_filter_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/rr"
+        android:background="#40000000"
+        android:visibility="gone">
+
+    </View>
+</RelativeLayout>

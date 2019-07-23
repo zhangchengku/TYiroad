@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:id="@+id/rr"
+        android:background="#FFFFFF"
+        android:layout_width="match_parent"
+        android:layout_height="30dp">
+        <RelativeLayout
+            android:id="@+id/lxr"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_centerHorizontal="true"
+                android:id="@+id/lx"
+                android:textSize="@dimen/text_size_for_sixteen"
+                android:text="所在路线"
+                android:singleLine="true"
+                android:ellipsize="middle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <ImageView
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@+id/lx"
+                android:layout_alignBottom="@+id/lx"
+                android:layout_marginBottom="3dp"
+                android:src="@drawable/xcbh_riqixuanze_sanjiao"
+                android:layout_width="8dp"
+                android:layout_height="8dp" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/bhr"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_centerHorizontal="true"
+                android:id="@+id/type"
+                android:textSize="@dimen/text_size_for_sixteen"
+                android:text="病害类型"
+                android:singleLine="true"
+                android:ellipsize="middle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <ImageView
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@+id/type"
+                android:layout_alignBottom="@+id/type"
+                android:layout_marginBottom="3dp"
+                android:src="@drawable/xcbh_riqixuanze_sanjiao"
+                android:layout_width="8dp"
+                android:layout_height="8dp" />
+        </RelativeLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:id="@+id/rrr"
+        android:layout_below="@+id/rr"
+        android:background="#DFDFDF"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/refreshLayout"
+        android:layout_below="@+id/rr"
+        android:layout_above="@+id/look_log"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <com.scwang.smartrefresh.layout.header.ClassicsHeader
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/waihandle_rv"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+    <TextView
+        android:layout_alignParentBottom="true"
+        android:id="@+id/look_log"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_for_sixteen"
+        android:gravity="center"
+        android:text="立即上传"
+        android:background="@color/theme_color"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/disease_com_item_height" />
+
+    <include
+        android:layout_below="@+id/rrr"
+        android:layout_above="@+id/look_log"
+        android:id="@+id/disease_list_no_data_layout"
+        layout="@layout/com_no_data_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+    </include>
+</RelativeLayout>

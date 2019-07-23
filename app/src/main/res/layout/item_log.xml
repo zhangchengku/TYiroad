@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:id="@+id/log_bg"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <TextView
+            android:gravity="center"
+            android:id="@+id/time"
+            android:text="已上传"
+            android:textSize="@dimen/text_size_for_fourteen"
+            android:textColor="#333333"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent" />
+        <TextView
+            android:gravity="center"
+            android:textSize="@dimen/text_size_for_fourteen"
+            android:textColor="#333333"
+            android:id="@+id/gygs"
+            android:text="已上传"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent" />
+        <TextView
+            android:gravity="center"
+            android:textSize="@dimen/text_size_for_fourteen"
+            android:textColor="#2cb303"
+            android:id="@+id/type"
+            android:text="已上传"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+</LinearLayout>
