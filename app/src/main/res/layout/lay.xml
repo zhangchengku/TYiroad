@@ -10,6 +10,7 @@
         android:orientation="horizontal">
 
         <TextView
+            android:textSize="14sp"
             android:textColor="@color/text_color"
             android:id="@+id/one"
             android:layout_width="0dp"
@@ -17,12 +18,13 @@
             android:layout_marginBottom="0.5dp"
             android:layout_marginLeft="1dp"
             android:layout_marginTop="0.5dp"
-            android:layout_weight="1"
+            android:layout_weight="0.8"
             android:background="@color/white"
             android:gravity="center"
             android:text="弯道(0.01mm)" />
 
         <TextView
+            android:textSize="14sp"
             android:textColor="@color/text_color"
             android:id="@+id/two"
             android:layout_width="0dp"
@@ -35,7 +37,18 @@
             android:background="@color/white"
             android:gravity="center"
             android:text="大于设计要求值" />
-
+        <EditText
+            android:textSize="14sp"
+            android:textColor="@color/text_color"
+            android:id="@+id/three"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="0.5dp"
+            android:layout_marginRight="1dp"
+            android:layout_marginTop="0.5dp"
+            android:layout_weight="0.3"
+            android:background="@color/white"
+            android:gravity="center" />
         <RadioGroup
             android:id="@+id/rg_sex"
             android:layout_width="0dp"
@@ -43,11 +56,12 @@
             android:layout_marginBottom="0.5dp"
             android:layout_marginRight="1dp"
             android:layout_marginTop="0.5dp"
-            android:layout_weight="1"
+            android:layout_weight="0.8"
             android:background="@color/white"
             android:orientation="horizontal">
 
             <RadioButton
+                android:textSize="14sp"
                 android:checked="true"
                 android:textColor="@color/text_color"
                 android:id="@+id/rb_Male"
@@ -58,6 +72,7 @@
                 android:theme="@style/MyRadioButton" />
 
             <RadioButton
+                android:textSize="14sp"
                 android:textColor="@color/text_color"
                 android:id="@+id/rb_FeMale"
                 android:layout_width="wrap_content"

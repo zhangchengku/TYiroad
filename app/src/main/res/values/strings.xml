@@ -36,4 +36,5 @@
     <string name="shi_chu_yi_pai_fa">市处已派发</string>
     <string name="select_bh_does_not_meet_the_requirements">只有新添加和新病害可以派发，请重新选择</string>
     <string name="select_bh_does_not_meet_the_shenhe">只有施工单位病害可以审核，请重新选择</string>
+    <string name="scr">上&#160;&#160;传&#160;&#160;人：</string>
 </resources>

@@ -101,6 +101,12 @@ public class INQualityActivity extends MVPBaseActivity<INQualityContract.View, I
     View activityNewDiseaseZheZhaoLayout;
     @Bind(R.id.lay_rel)
     RelativeLayout layRel;
+    @Bind(R.id.jcfw_te)
+    TextView jcfwTe;
+    @Bind(R.id.ed_jcfw)
+    EditText edJcfw;
+    @Bind(R.id.rel_jcfw)
+    RelativeLayout relJcfw;
     private CommonAdapter<INQualityBean.DATABean.DATAJCXMMXBean> adapter;
     private INMonitoringGreAdapter iNMonitoringGreAdapter;
     private LoadDataDialog loadDataDialog;
@@ -130,6 +136,7 @@ public class INQualityActivity extends MVPBaseActivity<INQualityContract.View, I
         INQuality.setVisibility(View.GONE);
         mPresenter.initData(getIntent().getStringExtra("MOID"));
     }
+
     private void showLoadingDialogMethod(String str) {
         if (loadDataDialog == null) {
             loadDataDialog = new LoadDataDialog(this);
@@ -137,6 +144,7 @@ public class INQualityActivity extends MVPBaseActivity<INQualityContract.View, I
         loadDataDialog.setTitleStr(str);
         loadDataDialog.show();
     }
+
     @Override
     public void onRequestError(String msg) {
 
@@ -149,6 +157,7 @@ public class INQualityActivity extends MVPBaseActivity<INQualityContract.View, I
 
     @Override
     public void getData(INQualityBean.DATABean videoVos2) {
+        edJcfw.setText(videoVos2.getDATAMX().get(0).getJCFW());
         edProgress.setText(videoVos2.getDATAMX().get(0).getXMMC());
         edCheck.setText(videoVos2.getDATAMX().get(0).getFBGCMC());
         edEvaluate.setText(videoVos2.getDATAMX().get(0).getFXGCMC());
@@ -162,6 +171,7 @@ public class INQualityActivity extends MVPBaseActivity<INQualityContract.View, I
             protected void convert(final ViewHolder holder, INQualityBean.DATABean.DATAJCXMMXBean tubiaoVo, final int position) {
                 holder.setText(R.id.one, tubiaoVo.getJCXMMC());
                 holder.setText(R.id.two, tubiaoVo.getJCFWZ());
+                holder.setText(R.id.three, tubiaoVo.getHGDS());
                 RadioGroup rgsex = (RadioGroup) holder.getView(R.id.rg_sex);
                 final RadioButton rbMale = (RadioButton) holder.getView(R.id.rb_Male);
                 final RadioButton rbFeMale = (RadioButton) holder.getView(R.id.rb_FeMale);

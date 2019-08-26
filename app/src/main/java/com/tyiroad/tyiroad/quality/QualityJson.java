@@ -21,6 +21,15 @@ public class QualityJson {
      * PIC : []
      * Dlwz :  地理位置
      */
+    private String JCFW;
+
+    public String getJCFW() {
+        return JCFW;
+    }
+
+    public void setJCFW(String JCFW) {
+        this.JCFW = JCFW;
+    }
 
     private String Xmmc;
     private String Fbgc;
@@ -123,6 +132,15 @@ public class QualityJson {
 
         private String Guid;
         private String lsHg;
+        private String HGDS;
+
+        public String getHGDS() {
+            return HGDS;
+        }
+
+        public void setHGDS(String HGDS) {
+            this.HGDS = HGDS;
+        }
 
         public String getGuid() {
             return Guid;

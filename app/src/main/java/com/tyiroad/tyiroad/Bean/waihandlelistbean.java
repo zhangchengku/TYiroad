@@ -14,7 +14,6 @@ public class waihandlelistbean {
     private String BHMC;
     private String YQWCSJ;
     private int type ;
-
     public String getBHMC() {
         return BHMC;
     }

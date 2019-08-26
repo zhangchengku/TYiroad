@@ -2,6 +2,7 @@ package com.tyiroad.tyiroad.monitoring;
 
 import android.content.Context;
 
+import com.tyiroad.tyiroad.Bean.Basebean;
 import com.tyiroad.tyiroad.Bean.LogListbean;
 import com.tyiroad.tyiroad.mvp.BasePresenter;
 import com.tyiroad.tyiroad.mvp.BaseRequestView;
@@ -17,10 +18,11 @@ import java.util.List;
 public class MonitoringContract {
     interface View extends BaseRequestView {
         void getData(List<MonitoringListBean.DATABean> videoVos2);
-
+        void Deletes( Basebean videoVos2 );
     }
 
     interface  Presenter extends BasePresenter<View> {
         void getList(  String ETIME, String DATAID, String ACTION);
+        void Delete( String ID);
     }
 }

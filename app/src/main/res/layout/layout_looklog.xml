@@ -330,7 +330,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
             </RelativeLayout>
-
+            dw_img
         </RelativeLayout>
         <TextView
             android:textSize="@dimen/text_size_for_sixteen"

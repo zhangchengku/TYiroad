@@ -3,6 +3,7 @@ package com.tyiroad.tyiroad.monitoring;
 import android.content.Context;
 
 import com.alibaba.fastjson.JSON;
+import com.tyiroad.tyiroad.Bean.Basebean;
 import com.tyiroad.tyiroad.Bean.LogListbean;
 import com.tyiroad.tyiroad.MyApplication;
 import com.tyiroad.tyiroad.mvp.BasePresenterImpl;
@@ -41,6 +42,31 @@ public class MonitoringPresenter extends BasePresenterImpl<MonitoringContract.Vi
                         }else {
                             mView.onRequestError(videoVos2.getMSG());
                         }
+                    }
+                });
+
+    }
+    @Override
+    public void Delete( String ID) {
+        OkHttpUtils.get()
+                .tag(this)
+                .addParams("guid_obj", ID)
+                .url(MyApplication.BASEURLJLTH+"RevokeGCJK")
+                .build()
+                .execute(new StringCallback() {
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+                    }
+
+                    @Override
+                    public void onResponse(String response, int id) {
+                        Basebean videoVos2 = JSON.parseObject(response,Basebean.class);
+                        if (videoVos2.getSTATE().equals("1")){
+                            mView.Deletes(videoVos2);
+                        }else {
+                            mView.onRequestError(videoVos2.getMSG());
+                        }
+
                     }
                 });
 

@@ -46,4 +46,29 @@ public class QualitylistPresenter extends BasePresenterImpl<QualitylistContract.
                 });
 
     }
+    @Override
+    public void Delete( String ID) {
+        OkHttpUtils.get()
+                .tag(this)
+                .addParams("guid_obj", ID)
+                .url(MyApplication.BASEURLJLTH+"RevokeZLJY")
+                .build()
+                .execute(new StringCallback() {
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+                    }
+
+                    @Override
+                    public void onResponse(String response, int id) {
+                        Basebean videoVos2 = JSON.parseObject(response,Basebean.class);
+                        if (videoVos2.getSTATE().equals("1")){
+                            mView.Deletes(videoVos2);
+                        }else {
+                            mView.onRequestError(videoVos2.getMSG());
+                        }
+
+                    }
+                });
+
+    }
 }

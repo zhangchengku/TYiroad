@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/lay_rel"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/lay_header"
+        layout="@layout/layout_header" />
+
+    <ScrollView
+        android:id="@+id/activity_disease_new_scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/add_log"
+        android:layout_below="@+id/lay_header">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/rel_progress"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/progress_te"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="工程名称："
+                    android:textColor="@color/text_color"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:hint="请选择工程名称"
+                    android:id="@+id/ed_progress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="35dp"
+                    android:layout_toRightOf="@+id/progress_te"
+                    android:background="@drawable/edittext_bg"
+                    android:paddingBottom="2dp"
+                    android:paddingLeft="15dp"
+                    android:paddingTop="2dp"
+                    android:textColor="@color/text_color"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:layout_width="8dp"
+                    android:layout_height="8dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/xcbh_riqixuanze_sanjiao" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rel_check"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/check_te"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="工程阶段："
+                    android:textColor="@color/text_color"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:hint="请选择工程阶段"
+                    android:id="@+id/ed_check"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="35dp"
+                    android:layout_toRightOf="@+id/check_te"
+                    android:background="@drawable/edittext_bg"
+                    android:paddingBottom="2dp"
+                    android:paddingLeft="15dp"
+                    android:paddingTop="2dp"
+                    android:textColor="@color/text_color"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:layout_width="8dp"
+                    android:layout_height="8dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/xcbh_riqixuanze_sanjiao" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rel_evaluate"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/evaluate_te"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="资料类型："
+                    android:textColor="@color/text_color"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:hint="请选择资料类型"
+                    android:id="@+id/ed_evaluate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="35dp"
+                    android:layout_toRightOf="@+id/evaluate_te"
+                    android:background="@drawable/edittext_bg"
+                    android:paddingBottom="2dp"
+                    android:paddingLeft="15dp"
+                    android:paddingTop="2dp"
+                    android:textColor="@color/text_color"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:layout_width="8dp"
+                    android:layout_height="8dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/xcbh_riqixuanze_sanjiao" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/rel_completedbridge"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/completedbridge_te"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="资料名称："
+                    android:textColor="@color/text_color"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:hint="请输入资料名称"
+                    android:paddingLeft="15dp"
+                    android:id="@+id/ed_completedbridge"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="35dp"
+                    android:layout_toRightOf="@+id/completedbridge_te"
+                    android:background="@drawable/edittext_bg"
+                    android:paddingBottom="2dp"
+                    android:paddingTop="2dp"
+                    android:textColor="@color/text_color"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/rel_wzxx"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/wzxx_te"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="上传时间："
+                    android:textColor="@color/text_color"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/ed_wzxx"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="35dp"
+                    android:layout_toRightOf="@+id/wzxx_te"
+                    android:background="@drawable/edittext_bg"
+                    android:paddingBottom="2dp"
+                    android:paddingLeft="15dp"
+                    android:paddingTop="2dp"
+                    android:textColor="@color/text_color"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:layout_width="8dp"
+                    android:layout_height="8dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/xcbh_riqixuanze_sanjiao" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rel_dw"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/dw_te"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="上传单位："
+                    android:textColor="@color/text_color"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:paddingLeft="15dp"
+                    android:id="@+id/ed_dw"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="35dp"
+                    android:layout_toRightOf="@+id/dw_te"
+                    android:background="@drawable/edittext_bg"
+                    android:paddingBottom="2dp"
+                    android:paddingTop="2dp"
+                    android:textColor="@color/text_color"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/rel_r"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/r_te"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="@string/scr"
+                    android:textColor="@color/text_color"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:paddingLeft="15dp"
+                    android:id="@+id/ed_r"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="35dp"
+                    android:layout_toRightOf="@+id/r_te"
+                    android:background="@drawable/edittext_bg"
+                    android:paddingBottom="2dp"
+                    android:paddingTop="2dp"
+                    android:textColor="@color/text_color"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="15dp"
+                android:text="添加照片："
+                android:textColor="@color/text_color"
+                android:textSize="16sp" />
+            <LinearLayout
+                android:id="@+id/disease_new_bh_content_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:orientation="vertical">
+
+                <com.tyiroad.tyiroad.utils.NoScroolGridView
+                    android:id="@+id/cai_ji_picture_add_grid"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="3dp"
+                    android:cacheColorHint="@color/transparent"
+                    android:horizontalSpacing="3dp"
+                    android:listSelector="@color/transparent"
+                    android:numColumns="4"
+                    android:scrollbars="none"
+                    android:verticalSpacing="3dp" />
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="visible">
+                    <LinearLayout
+                        android:id="@+id/disease_custom_edit_item_cjtp_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal">
+
+                    </LinearLayout>
+
+                </HorizontalScrollView>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#f5f5f5" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal"
+                android:paddingLeft="30dp"
+                android:paddingRight="15dp">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/act_new_5" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="15dp"
+                    android:text="位置信息" />
+                <TextView
+                    android:text="不在范围内"
+                    android:id="@+id/is_bridge_fw"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_horizontal"
+                    android:textColor="@color/theme_color"
+                    android:visibility="visible" />
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#f5f5f5" />
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

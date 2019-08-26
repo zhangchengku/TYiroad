@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/my"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/ddd"
+        android:orientation="vertical">
+        <include layout="@layout/layout_header" />
+        <LinearLayout
+            android:background="#FFFFFF"
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+            <RelativeLayout
+                android:id="@+id/lxr"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:id="@+id/lx"
+                    android:textSize="@dimen/text_size_for_sixteen"
+                    android:text="项目名称"
+                    android:singleLine="true"
+                    android:ellipsize="middle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <ImageView
+                    android:layout_marginLeft="5dp"
+                    android:layout_toRightOf="@+id/lx"
+                    android:layout_alignBottom="@+id/lx"
+                    android:layout_marginBottom="3dp"
+                    android:src="@drawable/xcbh_riqixuanze_sanjiao"
+                    android:layout_width="8dp"
+                    android:layout_height="8dp" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/bhr"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true"
+                    android:id="@+id/type"
+                    android:textSize="@dimen/text_size_for_sixteen"
+                    android:text="资料类型"
+                    android:singleLine="true"
+                    android:ellipsize="middle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <ImageView
+                    android:layout_marginLeft="5dp"
+                    android:layout_toRightOf="@+id/type"
+                    android:layout_alignBottom="@+id/type"
+                    android:layout_marginBottom="3dp"
+                    android:src="@drawable/xcbh_riqixuanze_sanjiao"
+                    android:layout_width="8dp"
+                    android:layout_height="8dp" />
+            </RelativeLayout>
+        </LinearLayout>
+        <View
+            android:id="@+id/view"
+            android:background="#DFDFDF"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+
+        <com.scwang.smartrefresh.layout.SmartRefreshLayout
+            android:id="@+id/refreshLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white">
+
+            <com.scwang.smartrefresh.layout.header.ClassicsHeader
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <com.baoyz.swipemenulistview.SwipeMenuListView
+                android:id="@+id/logrecycle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+
+            <com.scwang.smartrefresh.layout.footer.ClassicsFooter
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ddd"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/disease_com_item_height"
+        android:layout_alignParentBottom="true">
+        <TextView
+            android:id="@+id/add_log"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#3499e7"
+            android:gravity="center"
+            android:text="资料上传"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_for_sixteen" />
+    </LinearLayout>
+    <View
+        android:id="@+id/list_zhe_zhao"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/month_filter_layout"
+        android:background="#40000000"
+        android:visibility="gone">
+
+    </View>
+</RelativeLayout>

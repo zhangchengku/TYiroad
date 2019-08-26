@@ -444,7 +444,11 @@ public class INwaihandleActivity extends MVPBaseActivity<INwaihandleContract.Vie
             constructionInfo.setDCR(replaceNull(indate.getDCR()));
             constructionInfo.setLXBM(replaceNull(indate.getLXBM()));
             constructionInfo.setDCSJ(replaceNull(indate.getDCSJ()));
-            constructionInfo.setDCLX(replaceNull(indate.getDCLX()));
+            if (curingDao.queryInvestigationByMc(indate.getDCLX()) == null) {
+                constructionInfo.setDCLX("1");
+            } else {
+                constructionInfo.setDCLX(indate.getDCLX());
+            }
             constructionInfo.setQDZH(replaceNull(diseaseNewPileNumberOneEdit.getText() + "." + diseaseNewPileNumberTwoEdit.getText()));
             constructionInfo.setWZFX(replaceNull(indate.getWZFX()));
             constructionInfo.setTPDZ(replaceNull(indate.getTPDZ()));

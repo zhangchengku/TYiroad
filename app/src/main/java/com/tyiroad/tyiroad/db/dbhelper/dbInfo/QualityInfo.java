@@ -75,6 +75,29 @@ public class QualityInfo {
     @DatabaseField
     private String PIC;//病害图片 多个逗号隔开
 
+
+
+    @DatabaseField
+    private String JCFW;
+    @DatabaseField
+    private String HGDS;//病害图片 多个逗号隔开
+
+    public String getJCFW() {
+        return JCFW;
+    }
+
+    public void setJCFW(String JCFW) {
+        this.JCFW = JCFW;
+    }
+
+    public String getHGDS() {
+        return HGDS;
+    }
+
+    public void setHGDS(String HGDS) {
+        this.HGDS = HGDS;
+    }
+
     public String getCSXMID() {
         return CSXMID;
     }

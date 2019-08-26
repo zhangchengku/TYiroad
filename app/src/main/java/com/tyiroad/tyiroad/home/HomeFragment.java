@@ -26,6 +26,8 @@ import com.tyiroad.tyiroad.db.dbhelper.CuringDaoImpl;
 import com.tyiroad.tyiroad.db.dbhelper.dbInfo.FilterBHInfo;
 import com.tyiroad.tyiroad.db.dbhelper.dbInfo.FilterLxInfo;
 import com.tyiroad.tyiroad.disease.DiseaseActivity;
+import com.tyiroad.tyiroad.documentation.DocumentationActivity;
+import com.tyiroad.tyiroad.documentation.list.LIstActivity;
 import com.tyiroad.tyiroad.handle.HandleActivity;
 import com.tyiroad.tyiroad.handle.LoadDataDialog;
 import com.tyiroad.tyiroad.log.LogActivity;
@@ -82,6 +84,8 @@ public class HomeFragment extends MVPBaseFragment<HomeContract.View, HomePresent
     private String jjxyhTitle = "季节性养护";
     private String zljyTitle = "质量检验";
     private String gcjkTitle = "过程监控";
+    private String qlglTitle = "桥梁管理";
+    private String wdzlTitle = "文档资料";
     private List<CdflInfo.ZCDBean> Datas = new ArrayList<>();
     private List<CdflInfo.ZCDBean> Datas2 = new ArrayList<>();
     private CommonAdapter<CdflInfo.ZCDBean> adapter2;
@@ -198,6 +202,9 @@ public class HomeFragment extends MVPBaseFragment<HomeContract.View, HomePresent
                     } else if (zCDBean.getCDMC().equals("过程监控")) {
                         holder.setBackgroundRes(R.id.im, guide_images[3]);
                         holder.setText(R.id.te, zCDBean.getCDMC());
+                    }else if (zCDBean.getCDMC().equals("文档资料")) {
+                        holder.setBackgroundRes(R.id.im, guide_images[1]);
+                        holder.setText(R.id.te, "文档资料");
                     }
                 }
             };
@@ -213,6 +220,9 @@ public class HomeFragment extends MVPBaseFragment<HomeContract.View, HomePresent
                         startActivity(intent);
                     } else if (Datas2.get(position).getCDMC().equals("过程监控")) {
                         Intent intent = new Intent(getActivity(), MonitoringActivity.class);
+                        startActivity(intent);
+                    }else if (Datas2.get(position).getCDMC().equals("文档资料")) {
+                        Intent intent = new Intent(getActivity(), LIstActivity.class);
                         startActivity(intent);
                     }
                 }
@@ -232,7 +242,7 @@ public class HomeFragment extends MVPBaseFragment<HomeContract.View, HomePresent
             if (xcrzTitle.equals(title) || xcbhTitle.equals(title) || shpfTitle.equals(title) || sgwxTitle.equals(title) || gcysTitle.equals(title) || jjxyhTitle.equals(title) || qtTitle.equals(title) || qlsmTitle.equals(title)) {
                 Datas.add(cdflInfo.get(0).getZCD().get(i));
             }
-            if (zljyTitle.equals(title) || gcjkTitle.equals(title)) {
+            if (wdzlTitle.equals(title)||zljyTitle.equals(title) || gcjkTitle.equals(title)) {
                 Datas2.add(cdflInfo.get(0).getZCD().get(i));
             }
         }

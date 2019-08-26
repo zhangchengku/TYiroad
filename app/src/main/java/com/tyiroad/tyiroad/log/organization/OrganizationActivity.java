@@ -216,13 +216,20 @@ public class OrganizationActivity extends MVPBaseActivity<OrganizationContract.V
         right.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String dw = "";
+                if (qu.getVisibility()==View.VISIBLE){
+                    dw =qu.getText().toString();
+                }else  if (shi.getVisibility()==View.VISIBLE){
+                    dw =shi.getText().toString();
+                }else {
+                    dw = sheng.getText().toString();
+                }
                 Log.e("张成昆: ",guid_obj );
-//                Intent intent = new Intent();
-//                // 获取用户计算后的结果
-//                intent.putExtra("guid_obj", guid_obj); //将计算的值回传回去
-//
-//                setResult(2, intent);
-//                finish();
+                Intent intent = new Intent();
+                intent.putExtra("ID", guid_obj);
+                intent.putExtra("DW", dw);
+                setResult(2, intent);
+                finish();
             }
         });
     }

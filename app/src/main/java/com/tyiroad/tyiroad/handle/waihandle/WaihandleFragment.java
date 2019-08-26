@@ -158,10 +158,13 @@ public class WaihandleFragment extends MVPBaseFragment<WaihandleContract.View, W
             protected void convert(ViewHolder holder, waihandlelistbean tubiaoVo, int position) {
                 if (tubiaoVo.getType() == 0) {
                     holder.setText(R.id.disease_adapter_item_state_txt, "待上传");
-                    holder.setBackgroundColor(R.id.disease_adapter_item_state_txt, getActivity().getResources().getColor(R.color.disease_flag_text_bg_dsc));
-                } else {
+                    holder.setBackgroundColor(R.id.disease_adapter_item_state_txt, getActivity().getResources().getColor(R.color.disease_daishangchuan));
+                } else if (tubiaoVo.getType() == 1){
                     holder.setText(R.id.disease_adapter_item_state_txt, "待施工");
                     holder.setBackgroundColor(R.id.disease_adapter_item_state_txt, getActivity().getResources().getColor(R.color.disease_flag_text_bg_dsc));
+                }else {
+                    holder.setText(R.id.disease_adapter_item_state_txt, "已退回");
+                    holder.setBackgroundColor(R.id.disease_adapter_item_state_txt, getActivity().getResources().getColor(R.color.pf_xin_bing_hai_text_color));
                 }
                 if (tubiaoVo.getTPDZ() != null) {
                     Glide.with(getContext())
@@ -188,7 +191,7 @@ public class WaihandleFragment extends MVPBaseFragment<WaihandleContract.View, W
                         Intent intent = new Intent(getActivity(), BDwaihandleActivity.class);
                         intent.putExtra("BHID", String.valueOf(LIstdate.get(position).getBHID()));
                         startActivityForResult(intent, 1);
-                    } else if (LIstdate.get(position).getType() == 1) {
+                    } else if (LIstdate.get(position).getType() == 1||LIstdate.get(position).getType() == 2) {
                         Intent intent = new Intent(getActivity(), INwaihandleActivity.class);
                         intent.putExtra("BHID", String.valueOf(LIstdate.get(position).getBHID()));
                         startActivityForResult(intent, 1);
@@ -316,7 +319,11 @@ public class WaihandleFragment extends MVPBaseFragment<WaihandleContract.View, W
                 waihandlelistbean.setBHID(Insql.get(i).getBHID());
                 waihandlelistbean.setYQWCSJ(Insql.get(i).getDCSJ());
                 waihandlelistbean.setBHMC(Insql.get(i).getBHMC());
-                waihandlelistbean.setType(1);
+                if (Insql.get(i).getBHZT().equals("7")){
+                    waihandlelistbean.setType(2);
+                }else {
+                    waihandlelistbean.setType(1);
+                }
                 INlist.add(waihandlelistbean);
             }
         }
@@ -378,6 +385,7 @@ public class WaihandleFragment extends MVPBaseFragment<WaihandleContract.View, W
                     constructionInfo.setSGMX(replaceNull(videoVos2.getBHLIST().get(i).getSGMX()));//
                     constructionInfo.setBHMC(replaceNull(videoVos2.getBHLIST().get(i).getBHMC()));//
                     constructionInfo.setBHMC(replaceNull(videoVos2.getBHLIST().get(i).getBHMC()));//
+                    constructionInfo.setBHZT(replaceNull(videoVos2.getBHLIST().get(i).getBHZT()));
                     int j = curingDao.addSgwx(constructionInfo);
                     if (j != 0) {
                         Log.e("添加数据库", "addsqlit: 成功");

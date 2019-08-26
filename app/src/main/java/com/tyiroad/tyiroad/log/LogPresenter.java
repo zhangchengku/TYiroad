@@ -21,7 +21,7 @@ public class LogPresenter extends BasePresenterImpl<LogContract.View> implements
 
         OkHttpUtils.get()
                 .tag(this)
-                .addParams("gydwid", MyApplication.spUtils.getString("dqgydwid"))
+                .addParams("gydwid",GYDWID)
                 .addParams("starttime",STIME)
                 .addParams("endtime",ETIME )
                 .addParams("dataid", DATAID)

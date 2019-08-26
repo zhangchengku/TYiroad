@@ -431,7 +431,11 @@ public class BDwaihandleActivity extends MVPBaseActivity<BDwaihandleContract.Vie
             constructionInfo.setDCR(replaceNull(indate.getDCR()));
             constructionInfo.setLXBM(replaceNull(indate.getLXBM()));
             constructionInfo.setDCSJ(replaceNull(indate.getDCSJ()));
-            constructionInfo.setDCLX(replaceNull(indate.getDCLX()));
+            if (curingDao.queryInvestigationByMc(indate.getDCLX()) == null) {
+                constructionInfo.setDCLX("1");
+            } else {
+                constructionInfo.setDCLX(indate.getDCLX());
+            }
             constructionInfo.setQDZH(replaceNull(diseaseNewPileNumberOneEdit.getText() + "." + diseaseNewPileNumberTwoEdit.getText()));
             constructionInfo.setWZFX(replaceNull(indate.getWZFX()));
             constructionInfo.setTPDZ(replaceNull(indate.getTPDZ()));
@@ -491,7 +495,11 @@ public class BDwaihandleActivity extends MVPBaseActivity<BDwaihandleContract.Vie
         diseaseDetailRoadLineTxt.setText(replaceNull(indate.getLXBM()));
         diseaseDetailTimeTxt.setText(replaceNull(indate.getDCSJ().replace("T", " ")));
         czwtet.setText(replaceNull(indate.getSGMX()));
-        diseaseDetailToExamineTypeTxt.setText(replaceNull(indate.getDCLX()));
+        if (curingDao.queryInvestigationById(indate.getDCLX()) == null) {
+            diseaseDetailToExamineTypeTxt.setText("日常巡查");
+        } else {
+            diseaseDetailToExamineTypeTxt.setText(curingDao.queryInvestigationById(indate.getDCLX()).getDCMC());
+        }
         if (indate.getQDZH() != null) {
             String zhfStr = indate.getQDZH().substring(0, indate.getQDZH().indexOf("."));
             String zhaStr = indate.getQDZH().substring(indate.getQDZH().indexOf(".") + 1, indate.getQDZH().length());

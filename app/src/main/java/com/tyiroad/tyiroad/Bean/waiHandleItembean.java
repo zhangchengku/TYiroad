@@ -92,6 +92,15 @@ public class waiHandleItembean {
         private Object SGFZR;
         private String CZFAMC;
         private String SGMX;
+        private String BHZT;
+
+        public String getBHZT() {
+            return BHZT;
+        }
+
+        public void setBHZT(String BHZT) {
+            this.BHZT = BHZT;
+        }
 
         public String getBHLXID() {
             return BHLXID;

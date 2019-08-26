@@ -7,6 +7,8 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
@@ -120,22 +122,28 @@ public class QualityActivity extends MVPBaseActivity<QualityContract.View, Quali
     View activityNewDiseaseZheZhaoLayout;
     @Bind(R.id.lay_rel)
     RelativeLayout layRel;
+    @Bind(R.id.jcfw_te)
+    TextView jcfwTe;
+    @Bind(R.id.ed_jcfw)
+    EditText edJcfw;
+    @Bind(R.id.rel_jcfw)
+    RelativeLayout relJcfw;
     private QualityGredAdapter qualityGredAdapter;
     private ArrayList<String> XmmcResult = new ArrayList<>();
     private ArrayList<String> FxgcResult = new ArrayList<>();
     private ArrayList<String> FbgcResult = new ArrayList<>();
     private QualityPopupWindow XmmcPop, FbgcPop, FxgcPop;
-    private List<QualityBean.DATABean.XmmcBean> XmmcInfos = new ArrayList<>();
-    private QualityBean.DATABean.XmmcBean XmmcInfo;
-    private QualityBean.DATABean Data;
-    private List<QualityBean.DATABean.FbgcBean> FbgcInfos = new ArrayList<>();
-    private QualityBean.DATABean.FbgcBean FbgcInfo;
+
+    private List<FbgcBean.DATABean> FbgcInfos = new ArrayList<>();
+    private FbgcBean.DATABean FbgcInfo;
     private List<ListDataBean.DATABean> listData = new ArrayList<>();
-    private QualityBean.DATABean.FxgcBean FxgcInfo;
-    private List<QualityBean.DATABean.FxgcBean> FxgcInfos = new ArrayList<>();
+    private FxgcBean.DATABean FxgcInfo;
+    private List<FxgcBean.DATABean> FxgcInfos = new ArrayList<>();
     private Gson gson = new Gson();
     private CuringDaoImpl curingDao;
     private CommonAdapter<ListDataBean.DATABean> adapter;
+    private XmmcBean.DATABean XmmcInfo;
+    private List<XmmcBean.DATABean> XmmcInfos = new ArrayList<>();
 
     public void setCameraPath(String cameraPath) {
         this.cameraPath = cameraPath;
@@ -148,11 +156,13 @@ public class QualityActivity extends MVPBaseActivity<QualityContract.View, Quali
     public void setChildViewPosition(int childViewPosition) {
         this.childViewPosition = childViewPosition;
     }
+
     private LoadDataDialog loadDataDialog;
     private final int CHOOSE_PICTURE_CODE = 1;
     private final int CAMERA_CODE = 2;
     private AMapLocationClient locationClient = null;
     private AMapLocationClientOption locationOption = null;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -168,6 +178,7 @@ public class QualityActivity extends MVPBaseActivity<QualityContract.View, Quali
         initlisener();
 
     }
+
     private void showLoadingDialogMethod(String str) {
         if (loadDataDialog == null) {
             loadDataDialog = new LoadDataDialog(this);
@@ -175,6 +186,7 @@ public class QualityActivity extends MVPBaseActivity<QualityContract.View, Quali
         loadDataDialog.setTitleStr(str);
         loadDataDialog.show();
     }
+
     private void initlisener() {
         goBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -185,15 +197,15 @@ public class QualityActivity extends MVPBaseActivity<QualityContract.View, Quali
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (Utils.isNull(XmmcInfo.getGUID_OBJ())){
+                if (Utils.isNull(XmmcInfo.getGUID_OBJ())) {
                     MyApplication.app.customToast("请选择项目名称");
                     return;
                 }
-                if (Utils.isNull(FbgcInfo.getGUID_OBJ())){
+                if (Utils.isNull(FbgcInfo.getGUID_OBJ())) {
                     MyApplication.app.customToast("请选择分部工程");
                     return;
                 }
-                if (Utils.isNull(FxgcInfo.getGUID_OBJ())){
+                if (Utils.isNull(FxgcInfo.getGUID_OBJ())) {
                     MyApplication.app.customToast("请选择分项工程");
                     return;
                 }
@@ -213,6 +225,7 @@ public class QualityActivity extends MVPBaseActivity<QualityContract.View, Quali
                 qualityInfo.setJcdw(MyApplication.spUtils.getString("dqgydwid"));
                 qualityInfo.setBhgsm(explainEt.getText().toString());
                 qualityInfo.setDlwz(isBridgeFw.getText().toString());//地理位置
+                qualityInfo.setJCFW(edJcfw.getText().toString());
                 String imgStr = "";
                 ArrayList<String> listImgUrl = qualityGredAdapter.getListImgUrl();
                 if (listImgUrl != null && listImgUrl.size() > 0) {
@@ -228,23 +241,27 @@ public class QualityActivity extends MVPBaseActivity<QualityContract.View, Quali
                 String JCFWZ = "";
                 String CSXMID = "";
                 String LsHg = "";
+                String HGDS = "";
                 for (int i = 0; i < listData.size(); i++) {
                     if (i == 0) {
                         JCXM = listData.get(i).getXMMC();
                         JCFWZ = listData.get(i).getXMCS();
                         CSXMID = listData.get(i).getGUID_OBJ();
                         LsHg = listData.get(i).getISCHECK();
+                        HGDS = listData.get(i).getHGDS();
                     } else {
                         JCXM += "," + listData.get(i).getXMMC();
                         JCFWZ += "。" + listData.get(i).getXMCS();
                         CSXMID += "," + listData.get(i).getGUID_OBJ();
                         LsHg += "," + listData.get(i).getISCHECK();
+                        HGDS += "," + listData.get(i).getHGDS();
                     }
                 }
                 qualityInfo.setJCXM(JCXM);
                 qualityInfo.setJCFWZ(JCFWZ);
                 qualityInfo.setCSXMID(CSXMID);
                 qualityInfo.setLsHg(LsHg);
+                qualityInfo.setHGDS(HGDS);
                 qualityInfo.setPIC(imgStr);
                 int reture = curingDao.addQuality(qualityInfo);
                 if (reture != 0) {
@@ -262,15 +279,15 @@ public class QualityActivity extends MVPBaseActivity<QualityContract.View, Quali
         addLog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (Utils.isNull(XmmcInfo.getGUID_OBJ())){
+                if (Utils.isNull(XmmcInfo.getGUID_OBJ())) {
                     MyApplication.app.customToast("请选择项目名称");
                     return;
                 }
-                if (Utils.isNull(FbgcInfo.getGUID_OBJ())){
+                if (Utils.isNull(FbgcInfo.getGUID_OBJ())) {
                     MyApplication.app.customToast("请选择分部工程");
                     return;
                 }
-                if (Utils.isNull(FxgcInfo.getGUID_OBJ())){
+                if (Utils.isNull(FxgcInfo.getGUID_OBJ())) {
                     MyApplication.app.customToast("请选择分项工程");
                     return;
                 }
@@ -278,6 +295,7 @@ public class QualityActivity extends MVPBaseActivity<QualityContract.View, Quali
                 showLoadingDialogMethod(str);
                 addLog.setClickable(false);
                 QualityJson qualityJson = new QualityJson();
+                qualityJson.setJCFW(edJcfw.getText().toString());
                 qualityJson.setXmmc(XmmcInfo.getGUID_OBJ());
                 qualityJson.setFbgc(FbgcInfo.getGUID_OBJ());
                 qualityJson.setFxgc(FxgcInfo.getGUID_OBJ());
@@ -289,17 +307,21 @@ public class QualityActivity extends MVPBaseActivity<QualityContract.View, Quali
                 QualityJson.JcxmListBean jcxmListBean = new QualityJson.JcxmListBean();
                 String Guid = "";
                 String JcxmList = "";
+                String HgdsList = "";
                 for (int i = 0; i < listData.size(); i++) {
                     if (i == 0) {
                         Guid = listData.get(i).getGUID_OBJ();
                         JcxmList = listData.get(i).getISCHECK();
+                        HgdsList = listData.get(i).getHGDS();
                     } else {
                         Guid += "," + listData.get(i).getGUID_OBJ();
                         JcxmList += "," + listData.get(i).getISCHECK();
+                        HgdsList += "," + listData.get(i).getHGDS();
                     }
                 }
                 jcxmListBean.setGuid(Guid);
                 jcxmListBean.setLsHg(JcxmList);
+                jcxmListBean.setHGDS(HgdsList);
                 List<QualityJson.JcxmListBean> sssss = new ArrayList<>();
                 sssss.add(jcxmListBean);
                 qualityJson.setJcxmList(sssss);
@@ -372,8 +394,8 @@ public class QualityActivity extends MVPBaseActivity<QualityContract.View, Quali
             public void selectPosition(int position) {
                 edProgress.setText(XmmcResult.get(position));
                 XmmcInfo = XmmcInfos.get(position);
-                getFbgc();
-                if(locationClient==null){
+                mPresenter.getFbgcData(XmmcInfo.getGUID_OBJ());
+                if (locationClient == null) {
                     initLocation();
                 }
                 startLocation();
@@ -384,7 +406,7 @@ public class QualityActivity extends MVPBaseActivity<QualityContract.View, Quali
             public void selectPosition(int position) {
                 edCheck.setText(FbgcResult.get(position));
                 FbgcInfo = FbgcInfos.get(position);
-                getFxgc();
+                mPresenter.getFxgcData(XmmcInfo.getGUID_OBJ(), FbgcInfo.getGUID_OBJ());
             }
         });
         FxgcPop = new QualityPopupWindow(this, "请选择分项工程", FxgcResult, new DiseaseNewSelectObjectListener() {
@@ -398,57 +420,13 @@ public class QualityActivity extends MVPBaseActivity<QualityContract.View, Quali
     }
 
     private void getJcxm() {
-        mPresenter.getListData(MyApplication.spUtils.getString("dqgydwid"),XmmcInfo.getGUID_OBJ(),FxgcInfo.getGUID_OBJ());
-    }
-
-    private void getFxgc() {
-        FxgcResult.clear();
-        FxgcInfos.clear();
-        layXm.setVisibility(View.GONE);
-        listview.setVisibility(View.GONE);
-        if (!Utils.isNull(edEvaluate.getText().toString())) {
-            edEvaluate.setText("");
-            edEvaluate.setHint("请选择分项工程");
-            FxgcInfo = null;
-        }
-        for (int i = 0; i < Data.getFxgc().size(); i++) {
-            if (Data.getFxgc().get(i).getSJXMGUID().equals(FbgcInfo.getGUID_OBJ())) {
-                if (Data.getFxgc().get(i).getGCXMID().equals(XmmcInfo.getGUID_OBJ())){
-                    FxgcResult.add(Data.getFxgc().get(i).getXMMC());
-                    FxgcInfos.add(Data.getFxgc().get(i));
-                }
-            }
-        }
-    }
-
-    private void getFbgc() {
-        FbgcResult.clear();
-        FbgcInfos.clear();
-        layXm.setVisibility(View.GONE);
-        listview.setVisibility(View.GONE);
-        if (!Utils.isNull(edCheck.getText().toString())) {
-            edCheck.setText("");
-            edCheck.setHint("请选择分部工程");
-            FbgcInfo = null;
-        }
-        if (!Utils.isNull(edEvaluate.getText().toString())) {
-            edEvaluate.setText("");
-            edEvaluate.setHint("请选择分项工程");
-            FxgcInfo = null;
-            FxgcResult.clear();
-        }
-        for (int i = 0; i < Data.getFbgc().size(); i++) {
-            if (Data.getFbgc().get(i).getGCXMID().equals(XmmcInfo.getGUID_OBJ())) {
-                FbgcResult.add(Data.getFbgc().get(i).getXMMC());
-                FbgcInfos.add(Data.getFbgc().get(i));
-            }
-        }
+        mPresenter.getListData(MyApplication.spUtils.getString("dqgydwid"), XmmcInfo.getGUID_OBJ(), FxgcInfo.getGUID_OBJ());
     }
 
     private void initdata() {
         title.setText("现场采集");
         edIncompletebridge.setText(MyApplication.spUtils.getString("dlr"));
-        mPresenter.getData(MyApplication.spUtils.getString("dqgydwid"));
+        mPresenter.getXmmcData();
         ArrayList<Drawable> listPicture = new ArrayList<>();
         ArrayList<String> listImgUrl = new ArrayList<>();
         Drawable addPicture = getResources().getDrawable(R.drawable.sjq_add_tupian_sel);
@@ -477,6 +455,24 @@ public class QualityActivity extends MVPBaseActivity<QualityContract.View, Quali
                         if (rbFeMale.getId() == checkedId) {
                             listData.get(position).setISCHECK("0");
                         }
+                    }
+                });
+                final EditText et = (EditText) holder.getView(R.id.three);
+                et.setTag(position);
+                et.addTextChangedListener(new TextWatcher() {
+                    @Override
+                    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+                    }
+
+                    @Override
+                    public void onTextChanged(CharSequence s, int start, int before, int count) {
+                        int positions = (int) et.getTag();//取tag值
+                        listData.get(positions).setHGDS(s.toString());
+                    }
+
+                    @Override
+                    public void afterTextChanged(Editable s) {
                     }
                 });
             }
@@ -607,23 +603,6 @@ public class QualityActivity extends MVPBaseActivity<QualityContract.View, Quali
     }
 
     @Override
-    public void getData(List<QualityBean.DATABean> videoVos2) {
-        if (videoVos2.size() > 0){
-            Data = videoVos2.get(0);
-            if (videoVos2.get(0).getXmmc().size() > 0){
-                XmmcInfos = videoVos2.get(0).getXmmc();
-            }
-            for (int i = 0; i < videoVos2.get(0).getXmmc().size(); i++) {
-                XmmcResult.add(videoVos2.get(0).getXmmc().get(i).getXMMC());
-            }
-            if (loadDataDialog != null && loadDataDialog.isShowing()) {
-                loadDataDialog.cancel();
-            }
-
-        }
-    }
-
-    @Override
     public void getResult(QualityBean basebean) {
         MyApplication.app.customToast("上传成功");
         Intent intent = new Intent();
@@ -637,7 +616,7 @@ public class QualityActivity extends MVPBaseActivity<QualityContract.View, Quali
 
     @Override
     public void getLocationResult(int basebean) {
-        if (basebean==1){
+        if (basebean == 1) {
             isBridgeFw.setText("在范围内");
         }
     }
@@ -652,6 +631,60 @@ public class QualityActivity extends MVPBaseActivity<QualityContract.View, Quali
         layXm.setVisibility(View.VISIBLE);
         listview.setVisibility(View.VISIBLE);
         adapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void getXmmcDatas(List<XmmcBean.DATABean> videoVos2) {
+        if (videoVos2.size() > 0) {
+            XmmcInfos = videoVos2;
+            for (int i = 0; i < videoVos2.size(); i++) {
+                XmmcResult.add(videoVos2.get(i).getXMMC());
+            }
+        }
+        if (loadDataDialog != null && loadDataDialog.isShowing()) {
+            loadDataDialog.cancel();
+        }
+    }
+
+    @Override
+    public void getFbgcDatas(List<FbgcBean.DATABean> videoVos2) {
+        FbgcResult.clear();
+        FbgcInfos.clear();
+        layXm.setVisibility(View.GONE);
+        listview.setVisibility(View.GONE);
+        if (!Utils.isNull(edCheck.getText().toString())) {
+            edCheck.setText("");
+            edCheck.setHint("请选择分部工程");
+            FbgcInfo = null;
+        }
+        if (!Utils.isNull(edEvaluate.getText().toString())) {
+            edEvaluate.setText("");
+            edEvaluate.setHint("请选择分项工程");
+            FxgcInfo = null;
+            FxgcResult.clear();
+        }
+        for (int i = 0; i < videoVos2.size(); i++) {
+            FbgcResult.add(videoVos2.get(i).getXMMC());
+            FbgcInfos.add(videoVos2.get(i));
+        }
+    }
+
+
+    @Override
+    public void getFxgcDatas(List<FxgcBean.DATABean> videoVos2) {
+        FxgcResult.clear();
+        FxgcInfos.clear();
+        layXm.setVisibility(View.GONE);
+        listview.setVisibility(View.GONE);
+        if (!Utils.isNull(edEvaluate.getText().toString())) {
+            edEvaluate.setText("");
+            edEvaluate.setHint("请选择分项工程");
+            FxgcInfo = null;
+        }
+        for (int i = 0; i < videoVos2.size(); i++) {
+            FxgcResult.add(videoVos2.get(i).getXMMC());
+            FxgcInfos.add(videoVos2.get(i));
+        }
     }
     /********定位功能开始**********/
     /**
@@ -702,10 +735,10 @@ public class QualityActivity extends MVPBaseActivity<QualityContract.View, Quali
             if (aMapLocation != null) {//定位成功
                 Double longitude = aMapLocation.getLongitude();//经度
                 Double latitude = aMapLocation.getLatitude();//纬度
-                Log.i("定位结果","经度"+String.valueOf(longitude)+" 纬度"+String.valueOf(latitude));
-                mPresenter.getLocation(XmmcInfo.getGUID_OBJ(),String.valueOf(longitude),String.valueOf(latitude));
+                Log.i("定位结果", "经度" + String.valueOf(longitude) + " 纬度" + String.valueOf(latitude));
+                mPresenter.getLocation(XmmcInfo.getGUID_OBJ(), String.valueOf(longitude), String.valueOf(latitude));
             } else {//定位失败
-                Log.i("定位失败","定位失败");
+                Log.i("定位失败", "定位失败");
             }
             stopLocation();
         }

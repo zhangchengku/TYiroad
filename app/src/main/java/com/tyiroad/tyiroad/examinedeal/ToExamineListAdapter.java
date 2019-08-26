@@ -156,21 +156,19 @@ public class ToExamineListAdapter extends BaseAdapter {
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (MyApplication.GYDWID.equals("NO")){
-                                  MyApplication.app.customToast("请选择施工单位");
+                if (GZZLBH.equals("已办")){
+                    Intent intent = new Intent(context, LookRepairRelyActivity.class);
+                    intent.putExtra("cjbhid", info.getBHID());
+                    context.startActivity(intent);
                 }else {
-                    if (GZZLBH.equals("已办")){
-                        Intent intent = new Intent(context, LookRepairRelyActivity.class);
-                        intent.putExtra("cjbhid", info.getBHID());
-                        context.startActivity(intent);
+                    if (MyApplication.GYDWID.equals("NO")){
+                        MyApplication.app.customToast("请选择施工单位");
                     }else {
                         Intent intent = new Intent(context, LookRepairActivity.class);
                         intent.putExtra("cjbhid", info.getBHID());
                         context.startActivity(intent);
                     }
-
                 }
-
             }
         });
 
@@ -213,11 +211,7 @@ public class ToExamineListAdapter extends BaseAdapter {
      */
     private String getNameByState(String stateStr) {
         String result = "";
-        if ("0".equals(stateStr)) {
-            result = context.getResources().getString(R.string.state_dai_shang_chuan);
-        } else if ("1".equals(stateStr)) {
-            result = context.getResources().getString(R.string.state_xin_tian_jia);
-        } else if ("2".equals(stateStr)) {
+        if ("2".equals(stateStr)) {
             result = context.getResources().getString(R.string.state_xin_bing_hai);
         } else if ("3".equals(stateStr)) {
             result = context.getResources().getString(R.string.state_yi_pai_fa);
@@ -226,23 +220,25 @@ public class ToExamineListAdapter extends BaseAdapter {
         } else if ("5".equals(stateStr)) {
             result = context.getResources().getString(R.string.state_yi_yan_shou);
         } else if ("6".equals(stateStr)) {
-            result = context.getResources().getString(R.string.state_yan_shou_tui_hui);
+            result = "部分验收";
         } else if ("7".equals(stateStr)) {
-            result = context.getResources().getString(R.string.state_fa_qi_kao_he);
+            result = "退回";
         } else if ("8".equals(stateStr)) {
-            result = context.getResources().getString(R.string.state_kao_he_tui_hui);
+            result = "考核";
         } else if ("9".equals(stateStr)) {
-            result = context.getResources().getString(R.string.state_pi_liang_tui_hui);
+            result = "待确认";
         } else if ("10".equals(stateStr)) {
-            result = context.getResources().getString(R.string.state_yi_kao_he);
+            result = "待审批";
         } else if ("11".equals(stateStr)) {
-            result = context.getResources().getString(R.string.state_yi_ji_liang);
+            result = "已处置";
         } else if ("12".equals(stateStr)) {
-            result = context.getResources().getString(R.string.state_dai_kao_he);
+            result = "立即处置";
         } else if ("13".equals(stateStr)) {
-            result = context.getResources().getString(R.string.state_shi_tong_he_ge);
+            result = "保通观察";
         } else if ("14".equals(stateStr)) {
-            result = context.getResources().getString(R.string.state_shi_gong_dan_wei_bing_hai);
+            result = "集中处置";
+        } else if ("15".equals(stateStr)) {
+            result = "纳入大中修";
         }else if("17".equals(stateStr)){
             result = context.getResources().getString(R.string.yi_shang_bao);
         }else if("18".equals(stateStr)){

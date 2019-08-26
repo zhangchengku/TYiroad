@@ -399,7 +399,11 @@ public class LookdiseasedbActivity extends MVPBaseActivity<LookdiseasedbContract
                 adddiseasejson.setBHMC(curingDao.queryCzfaByBhmc(diseaseCustomEditItemBhmcTxtBtn.getText().toString()).getBHLXID());
                 adddiseasejson.setCREATOR(MyApplication.spUtils.getString("dlr"));
                 adddiseasejson.setCZFAMC(diseaseCustomEditItemSgfsTxtBtn.getText().toString());
-                adddiseasejson.setDCLX(curingDao.queryInvestigationByMc(diseaseNewToExamineTypeTxt.getText().toString()).getDCID());
+                if (curingDao.queryInvestigationByMc(diseaseNewToExamineTypeTxt.getText().toString()) == null) {
+                    adddiseasejson.setDCLX("1");
+                } else {
+                    adddiseasejson.setDCLX(curingDao.queryInvestigationByMc(diseaseNewToExamineTypeTxt.getText().toString()).getDCID());
+                }
                 adddiseasejson.setDCR(MyApplication.spUtils.getString("dlr"));
                 adddiseasejson.setDCSJ(diseaseNewTimeTxt.getText().toString());
                 adddiseasejson.setFXDW(MyApplication.spUtils.getString("dqgydwid"));
@@ -558,7 +562,11 @@ public class LookdiseasedbActivity extends MVPBaseActivity<LookdiseasedbContract
             diseaseBaseInfo.setLDMC(lxInfo.getTEXT());//路段名称
             diseaseBaseInfo.setLXID(lxInfo.getVALUE());
             diseaseBaseInfo.setCJSJ(diseaseNewTimeTxt.getText().toString());
-            diseaseBaseInfo.setDCLX(curingDao.queryInvestigationByMc(diseaseNewToExamineTypeTxt.getText().toString()).getDCID());
+            if (curingDao.queryInvestigationByMc(diseaseNewToExamineTypeTxt.getText().toString()) == null) {
+                diseaseBaseInfo.setDCLX("1");
+            } else {
+                diseaseBaseInfo.setDCLX(curingDao.queryInvestigationByMc(diseaseNewToExamineTypeTxt.getText().toString()).getDCID());
+            }
             diseaseBaseInfo.setZH(zhStr);
             diseaseBaseInfo.setWZFX(xsfxStr);
             diseaseBaseInfo.setBHLX(diseaseCustomEditItemBhlxTxtBtn.getText().toString());
@@ -664,10 +672,10 @@ public class LookdiseasedbActivity extends MVPBaseActivity<LookdiseasedbContract
                 dclxInfo = dclxResultdb.get(position);
             }
         });
-        BhlxPop = new DiseaeNewSelectObjectPopupWindow(this, "请选择病害类型", dclxResult, new DiseaseNewSelectObjectListener() {
+        BhlxPop = new DiseaeNewSelectObjectPopupWindow(this, "请选择病害类型", bhlxResult, new DiseaseNewSelectObjectListener() {
             @Override
             public void selectPosition(int position) {
-                diseaseCustomEditItemBhlxTxtBtn.setText(dclxResult.get(position));
+                diseaseCustomEditItemBhlxTxtBtn.setText(bhlxResult.get(position));
                 bhmc.setVisibility(View.VISIBLE);
                 diseaseCustomEditItemBhmcTxtBtn.setText("");
                 getbhmcResult();
@@ -710,7 +718,11 @@ public class LookdiseasedbActivity extends MVPBaseActivity<LookdiseasedbContract
         } else {
             diseaseNewRoadLineTxt.setText(diseaseBaseInfo.getLDMC());
         }
-        diseaseNewToExamineTypeTxt.setText(diseaseBaseInfo.getDCLX());
+        if (curingDao.queryInvestigationById(diseaseBaseInfo.getDCLX())==null){
+            diseaseNewToExamineTypeTxt.setText("日常巡查");
+        }else {
+            diseaseNewToExamineTypeTxt.setText(curingDao.queryInvestigationById(diseaseBaseInfo.getDCLX()).getDCMC());
+        }
         String zhStr = diseaseBaseInfo.getZH();
         if (zhStr.contains(".")) {
             String zhone = zhStr.substring(0, zhStr.indexOf("."));

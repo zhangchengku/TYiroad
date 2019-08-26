@@ -58,6 +58,16 @@ public class ConstructionInfo {
     private String HD;//厚度
     @DatabaseField
     private String SL;//数量
+    @DatabaseField
+    private String BHZT;//病害状态
+
+    public String getBHZT() {
+        return BHZT;
+    }
+
+    public void setBHZT(String BHZT) {
+        this.BHZT = BHZT;
+    }
 
     public String getBHLXID() {
         return BHLXID;

@@ -129,7 +129,10 @@
         <activity android:name=".log.addlog.AddLogActivity"  android:screenOrientation="portrait"/>
         <activity android:name=".log.lookdblog.LookDBLogActivity"  android:screenOrientation="portrait"/>
         <activity android:name=".log.looklog.LookLogActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".documentation.DocumentationActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".documentation.list.LIstActivity"  android:screenOrientation="portrait"/>
         <activity android:name=".log.organization.OrganizationActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".documentation.lookdoumentation.LookDoumentationActivity"  android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

@@ -429,7 +429,11 @@ public class NewdiseaseActivity extends MVPBaseActivity<NewdiseaseContract.View,
                 adddiseasejson.setBHMC(curingDao.queryCzfaByBhmc(diseaseCustomEditItemBhmcTxtBtn.getText().toString()).getBHLXID());
                 adddiseasejson.setCREATOR(MyApplication.spUtils.getString("dlr"));
                 adddiseasejson.setCZFAMC(diseaseCustomEditItemSgfsTxtBtn.getText().toString());
-                adddiseasejson.setDCLX(curingDao.queryInvestigationByMc(diseaseNewToExamineTypeTxt.getText().toString()).getDCID());
+                if (curingDao.queryInvestigationByMc(diseaseNewToExamineTypeTxt.getText().toString())==null){
+                    adddiseasejson.setDCLX("1");
+                }else {
+                    adddiseasejson.setDCLX(curingDao.queryInvestigationByMc(diseaseNewToExamineTypeTxt.getText().toString()).getDCID());
+                }
                 adddiseasejson.setDCR(MyApplication.spUtils.getString("dlr"));
                 adddiseasejson.setDCSJ(diseaseNewTimeTxt.getText().toString());
                 adddiseasejson.setFXDW(MyApplication.spUtils.getString("dqgydwid"));
@@ -612,7 +616,11 @@ public class NewdiseaseActivity extends MVPBaseActivity<NewdiseaseContract.View,
             diseaseBaseInfo.setLDMC(lxInfo.getTEXT());//路段名称
             diseaseBaseInfo.setLXID(lxInfo.getVALUE());
             diseaseBaseInfo.setCJSJ(diseaseNewTimeTxt.getText().toString());
-            diseaseBaseInfo.setDCLX(curingDao.queryInvestigationByMc(diseaseNewToExamineTypeTxt.getText().toString()).getDCID());
+            if (curingDao.queryInvestigationByMc(diseaseNewToExamineTypeTxt.getText().toString())==null){
+                diseaseBaseInfo.setDCLX("1");
+            }else {
+                diseaseBaseInfo.setDCLX(curingDao.queryInvestigationByMc(diseaseNewToExamineTypeTxt.getText().toString()).getDCID());
+            }
             diseaseBaseInfo.setZH(zhStr);
             diseaseBaseInfo.setWZFX(xsfxStr);
             diseaseBaseInfo.setBHLX(diseaseCustomEditItemBhlxTxtBtn.getText().toString());

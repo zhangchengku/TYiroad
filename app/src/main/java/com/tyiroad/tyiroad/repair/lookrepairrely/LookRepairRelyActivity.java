@@ -172,7 +172,7 @@ public class LookRepairRelyActivity extends MVPBaseActivity<LookRepairRelyContra
         diseaseNewRoadLineTxt.setText(detailInfo.getLXMC());
         diseaseNewTimeTxt.setText(detailInfo.getDCSJ().replace("T", " "));
         if (detailInfo.getDCLX() != null) {
-            diseaseNewToExamineTypeTxt.setText(curingDao.queryInvestigationById(detailInfo.getDCLX()).getDCMC());
+            diseaseNewToExamineTypeTxt.setText(detailInfo.getDCLX());
         }
         if (detailInfo.getQDZH() != null) {
             String zhStr = detailInfo.getQDZH();

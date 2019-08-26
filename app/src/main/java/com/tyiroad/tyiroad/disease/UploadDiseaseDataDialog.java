@@ -149,7 +149,11 @@ public class UploadDiseaseDataDialog {
             adddiseasejson.setBHMC(curingDao.queryCzfaByBhmc(baseInfo.getBHMC()).getBHLXID());
             adddiseasejson.setCREATOR(MyApplication.spUtils.getString("dlr"));
             adddiseasejson.setCZFAMC(baseInfo.getSGFS());
-            adddiseasejson.setDCLX(baseInfo.getDCLX());
+            if (curingDao.queryInvestigationById(baseInfo.getDCLX())==null){
+                adddiseasejson.setDCLX("1");
+            }else {
+                adddiseasejson.setDCLX(baseInfo.getDCLX());
+            }
             adddiseasejson.setDCR(MyApplication.spUtils.getString("dlr"));
             adddiseasejson.setDCSJ(baseInfo.getCJSJ());
             adddiseasejson.setFXDW(MyApplication.spUtils.getString("dqgydwid"));

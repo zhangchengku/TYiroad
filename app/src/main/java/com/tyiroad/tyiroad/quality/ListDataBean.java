@@ -56,6 +56,15 @@ public class ListDataBean {
         private String XMMC;
         private String XMCS;
         private String ISCHECK;
+        private String HGDS;
+
+        public String getHGDS() {
+            return HGDS;
+        }
+
+        public void setHGDS(String HGDS) {
+            this.HGDS = HGDS;
+        }
 
         public String getISCHECK() {
             return ISCHECK;

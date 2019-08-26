@@ -162,8 +162,7 @@ public class LookRepairActivity extends MVPBaseActivity<LookRepairContract.View,
     private ListAdapter gcxmadapter;
     private Gson gson = new Gson();
     public static boolean isSaveOrUpdateData;//是否修改了数据
-    private ArrayList<String> listPFResult= new ArrayList<>();
-    private DiseaeNewSelectObjectPopupWindow pfPop;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -183,9 +182,7 @@ public class LookRepairActivity extends MVPBaseActivity<LookRepairContract.View,
             @Override
             public void onClick(View v) {
                 if (Utils.isNetworkAvailable(LookRepairActivity.this)) {
-                    if (pfPop != null ) {
-                        pfPop.show(diseaseNewParentLayout);
-                    }
+                    showPaiFaTiShiDialog();
                 } else {
                     MyApplication.app.customToast("您当前没有网络");
                 }
@@ -247,7 +244,6 @@ public class LookRepairActivity extends MVPBaseActivity<LookRepairContract.View,
         XCBH.setGUID_OBJ(cjbhid);
         XCBH.setJLDW(gydwid);
         XCBH.setSGDW(MyApplication.GYDWID);
-        Log.e( "paifaCommit: ",MyApplication.GYDWID );
         XCBH.setPFR(MyApplication.spUtils.getString("dlr"));
         XCBH.setCREATOR(MyApplication.spUtils.getString("dlr"));
         XCBH.setQDZHPF(zhStr);
@@ -288,26 +284,6 @@ public class LookRepairActivity extends MVPBaseActivity<LookRepairContract.View,
         } else {
             diseaseNewPileNumberLocationTxt.setVisibility(View.GONE);
         }
-        listPFResult.clear();
-        if (MyApplication.spUtils.getString("QX").equals("1")){
-            listPFResult.add("上报");
-            listPFResult.add("审核");
-            listPFResult.add("派发");
-        }else if (MyApplication.spUtils.getString("QX").equals("2")) {
-            listPFResult.add("审核");
-            listPFResult.add("派发");
-        }else if (MyApplication.spUtils.getString("QX").equals("3")) {
-            listPFResult.add("上报");
-            listPFResult.add("派发");
-        }
-        pfPop = new DiseaeNewSelectObjectPopupWindow(this, "请选择处置方式", listPFResult, new DiseaseNewSelectObjectListener() {
-            @Override
-            public void selectPosition(int position) {
-                if (listPFResult.get(position).equals("派发")){
-                    showPaiFaTiShiDialog();
-                }
-            }
-        });
     }
 
     @Override
@@ -358,14 +334,16 @@ public class LookRepairActivity extends MVPBaseActivity<LookRepairContract.View,
             MyApplication.app.customToast("派发失败");
         }
     }
-
     private void setDataInView() {
-
         diseaseNewUnitNameTxt.setText(detailInfo.getDCR());
         diseaseNewRoadLineTxt.setText(detailInfo.getLXMC());
         diseaseNewTimeTxt.setText(detailInfo.getDCSJ().replace("T"," "));
         if (detailInfo.getDCLX()!=null){
-            diseaseNewToExamineTypeTxt.setText( curingDao.queryInvestigationById(detailInfo.getDCLX()).getDCMC());
+            if (curingDao.queryInvestigationById(detailInfo.getDCLX())==null){
+                diseaseNewToExamineTypeTxt.setText(detailInfo.getDCLX());
+            }else {
+                diseaseNewToExamineTypeTxt.setText( curingDao.queryInvestigationById(detailInfo.getDCLX()).getDCMC());
+            }
         }
         if (detailInfo.getQDZH()!=null){
             String zhStr=detailInfo.getQDZH();

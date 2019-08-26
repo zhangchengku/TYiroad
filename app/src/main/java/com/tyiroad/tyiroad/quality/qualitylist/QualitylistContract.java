@@ -18,10 +18,11 @@ import java.util.List;
 public class QualitylistContract {
     interface View extends BaseRequestView {
         void getData(List<QualityListBean.DATABean> videoVos2);
-
+        void Deletes(Basebean videoVos2);
     }
 
     interface  Presenter extends BasePresenter<View> {
         void getList(  String ETIME, String DATAID, String ACTION);
+        void Delete( String ID);
     }
 }

@@ -96,6 +96,15 @@ public class INQualityBean {
             private String GCBW;
             private String JCR;
             private String BHGSM;
+            private String JCFW;
+
+            public String getJCFW() {
+                return JCFW;
+            }
+
+            public void setJCFW(String JCFW) {
+                this.JCFW = JCFW;
+            }
 
             public String getBHGSM() {
                 return BHGSM;
@@ -200,6 +209,15 @@ public class INQualityBean {
             private String JCXMMC;
             private String JCJG;
             private String JCFWZ;
+            private String HGDS;
+
+            public String getHGDS() {
+                return HGDS;
+            }
+
+            public void setHGDS(String HGDS) {
+                this.HGDS = HGDS;
+            }
 
             public String getJCXMID() {
                 return JCXMID;

@@ -2,8 +2,11 @@ package com.tyiroad.tyiroad.quality.qualitylist;
 
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.TypedValue;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
@@ -12,9 +15,14 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.baoyz.swipemenulistview.SwipeMenu;
+import com.baoyz.swipemenulistview.SwipeMenuCreator;
+import com.baoyz.swipemenulistview.SwipeMenuItem;
+import com.baoyz.swipemenulistview.SwipeMenuListView;
 import com.bumptech.glide.Glide;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.tyiroad.tyiroad.Bean.Basebean;
 import com.tyiroad.tyiroad.MyApplication;
 import com.tyiroad.tyiroad.R;
 import com.tyiroad.tyiroad.db.dbhelper.CuringDaoImpl;
@@ -70,7 +78,7 @@ public class QualitylistActivity extends MVPBaseActivity<QualitylistContract.Vie
     @Bind(R.id.month_filter_layout)
     RelativeLayout monthFilterLayout;
     @Bind(R.id.logrecycle)
-    ListView logrecycle;
+    SwipeMenuListView logrecycle;
     @Bind(R.id.refreshLayout)
     SmartRefreshLayout refreshLayout;
     @Bind(R.id.shangchuan)
@@ -324,6 +332,7 @@ public class QualitylistActivity extends MVPBaseActivity<QualitylistContract.Vie
     }
 
     private void setadapter() {
+        logrecycle.setMenuCreator(creator);
         adapter = new CommonAdapter<QualityListBean.DATABean>(this,
                 R.layout.item_quality, DATA) {
             @Override
@@ -346,6 +355,16 @@ public class QualitylistActivity extends MVPBaseActivity<QualitylistContract.Vie
             }
         };
         logrecycle.setAdapter(adapter);
+        logrecycle.setOnMenuItemClickListener(new SwipeMenuListView.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(int position, SwipeMenu menu, int index) {
+                if (DATA.get(position).getXMZT().equals("已上传")){
+                    mPresenter.Delete(DATA.get(position).getGUID_OBJ());
+                    DATA.remove(position);
+                }
+                return true;
+            }
+        });
     }
 
     public static String replaceNull(String str) {
@@ -357,11 +376,18 @@ public class QualitylistActivity extends MVPBaseActivity<QualitylistContract.Vie
 
     @Override
     public void getData(List<QualityListBean.DATABean> videoVos2) {
-        DATA.addAll(videoVos2);
-        adapter.setmDatas(DATA);
+        if (videoVos2.size()>0){
+            DATA.addAll(videoVos2);
+            adapter.setmDatas(DATA);
+        }
         if (loadDataDialog != null && loadDataDialog.isShowing()) {
             loadDataDialog.cancel();
         }
+    }
+
+    @Override
+    public void Deletes(Basebean videoVos2) {
+        adapter.notifyDataSetChanged();
     }
 
     @Override
@@ -446,5 +472,28 @@ public class QualitylistActivity extends MVPBaseActivity<QualitylistContract.Vie
         dbData.clear();
         dbData = curingDao.queryAllQuality();
         refreshLayout.autoRefresh();
+    }
+    SwipeMenuCreator creator = new SwipeMenuCreator() {
+
+        @Override
+        public void create(SwipeMenu menu) {
+            // create "delete" item
+            SwipeMenuItem deleteItem = new SwipeMenuItem(
+                    getApplicationContext());
+            // set item background
+            deleteItem.setBackground(new ColorDrawable(Color.rgb(0xF9,
+                    0x3F, 0x25)));
+            // set item width
+            deleteItem.setWidth(dp2px(90));
+            // set a icon
+            deleteItem.setIcon(R.drawable.shanchu_btn);
+            // add to menu
+            menu.addMenuItem(deleteItem);
+        }
+    };
+
+    private int dp2px(int dp) {
+        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp,
+                getResources().getDisplayMetrics());
     }
 }

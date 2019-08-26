@@ -32,8 +32,9 @@ public class CheckPresenter extends BasePresenterImpl<CheckContract.View> implem
                     @Override
                     public void onResponse(String response, int id) {
                         SgRInfo videoVos = JSON.parseObject(response, SgRInfo.class);
-                        mView.getData(videoVos);
-
+                        if (videoVos.getSTATE().equals("1")){
+                            mView.getData(videoVos);
+                        }
                     }
                 });
     }

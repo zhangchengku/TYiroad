@@ -107,7 +107,7 @@ public class LogActivity extends MVPBaseActivity<LogContract.View, LogPresenter>
     private SimpleDateFormat simpleDateFormatResult = new SimpleDateFormat("yyyy/MM/dd");
     private WheelDateSelectPopupWindow popupWindow;
     private CommNotificationDialog commitWarmDialog;
-    private String gydwid = MyApplication.app.spUtils.getString("dqgydwid", "");
+    private String gydwid = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -117,6 +117,7 @@ public class LogActivity extends MVPBaseActivity<LogContract.View, LogPresenter>
         setContentView(R.layout.act_log);
         // TODO: add setContentView(...) invocation
         ButterKnife.bind(this);
+        gydwid =MyApplication.spUtils.getString("dqgydwid");
         curingDao = new CuringDaoImpl(this);
         title.setText("巡查日志");
         STIME = Utils.thisMonth();
